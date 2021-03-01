@@ -1,14 +1,14 @@
 //
-//  Gera_AppApp.swift
-//  Gera-App
+//  GeraApp.swift
+//  Gera
 //
-//  Created by Ana Carolina Soares de Melo on 26/02/21.
+//  Created by Erick Almeida on 01/03/21.
 //
 
 import SwiftUI
 
 @main
-struct Gera_AppApp: App {
+struct GeraApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

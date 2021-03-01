@@ -1,13 +1,13 @@
 //
-//  Gera_AppUITests.swift
-//  Gera-AppUITests
+//  GeraUITests.swift
+//  GeraUITests
 //
-//  Created by Ana Carolina Soares de Melo on 26/02/21.
+//  Created by Erick Almeida on 01/03/21.
 //
 
 import XCTest
 
-class Gera_AppUITests: XCTestCase {
+class GeraUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

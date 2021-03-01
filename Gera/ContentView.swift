@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  Gera-App
+//  Gera
 //
-//  Created by Ana Carolina Soares de Melo on 26/02/21.
+//  Created by Erick Almeida on 01/03/21.
 //
 
 import SwiftUI
