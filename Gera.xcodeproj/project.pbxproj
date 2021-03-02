@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AD37077A85F117D533C3531 /* Pods_Gera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E546E6C8A270CE4746AE32BF /* Pods_Gera.framework */; };
 		0EB5991E25EE6F82001DFCC8 /* VisualizacaoCartao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */; };
+		0EB5992325EE7D7C001DFCC8 /* BotaoContinuar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */; };
 		0EE270BD25EE5CB800A69E76 /* TelaPersonalizacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE270BC25EE5CB800A69E76 /* TelaPersonalizacao.swift */; };
 		A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2108225ED329C0035EF2B /* GeraApp.swift */; };
 		A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2108425ED329D0035EF2B /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizacaoCartao.swift; sourceTree = "<group>"; };
+		0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotaoContinuar.swift; sourceTree = "<group>"; };
 		0EE270BC25EE5CB800A69E76 /* TelaPersonalizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaPersonalizacao.swift; sourceTree = "<group>"; };
 		139DF2B13F72A515CAF29432 /* Pods-Gera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.release.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.release.xcconfig"; sourceTree = "<group>"; };
 		18A8595813D6E88573558C76 /* Pods-Gera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.debug.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				A7E2108825ED329F0035EF2B /* Preview Content */,
 				0EE270BC25EE5CB800A69E76 /* TelaPersonalizacao.swift */,
 				0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */,
+				0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */,
 			);
 			path = Gera;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				0EB5991E25EE6F82001DFCC8 /* VisualizacaoCartao.swift in Sources */,
 				0EE270BD25EE5CB800A69E76 /* TelaPersonalizacao.swift in Sources */,
 				A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */,
+				0EB5992325EE7D7C001DFCC8 /* BotaoContinuar.swift in Sources */,
 				A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

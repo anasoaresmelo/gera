@@ -24,12 +24,6 @@ struct VisualizacaoCartao: View {
                 .padding(.bottom, 40)
             }
         })
-        
-//        Text("Sua mensagem vai aqui")
-//            .font(.headline)
-//            .padding()
-//            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
-        
     }
 }
 

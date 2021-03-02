@@ -65,7 +65,7 @@ struct TelaPersonalizacao: View {
                     .padding(.top, 10)
                     Spacer()
                 }
-            }
+            }.padding(.horizontal)
             
             // MARK: Cor
             Group {
@@ -80,20 +80,20 @@ struct TelaPersonalizacao: View {
                 HStack {
                     Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 50, height: 50)
+                        //.frame(width: 45, height: 45)
                         .foregroundColor(.purple)
                     }
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 50, height: 50)
+                        //.frame(width: 45, height: 45)
                         .foregroundColor(.red)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 50, height: 50)
+                        //.frame(width: 45, height: 45)
                         .foregroundColor(.orange)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 50, height: 50)
+                        //.frame(width: 45, height: 45)
                         .foregroundColor(.yellow)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 45, height: 45)
+                        //.frame(width: 45, height: 45)
                         .foregroundColor(.green)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                         .frame(width: 45, height: 45)
@@ -102,24 +102,11 @@ struct TelaPersonalizacao: View {
                         .frame(width: 45, height: 45)
                         .foregroundColor(Color.gray)
                 }
-                .frame(width: UIScreen.main.bounds.width/1.2)
-                .padding(.bottom)
-            }
+                .frame(width: UIScreen.main.bounds.width/1.2, height: 45)
+            }.padding(.horizontal)
             
             // MARK: Continuar
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
-                    RoundedRectangle(cornerRadius: 15.0, style: .continuous)
-                        .frame(width: UIScreen.main.bounds.width/1.2, height: 70)
-                        .foregroundColor(cor)
-                    HStack {
-                    Text("Continuar")
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    }
-                })
-            }.padding(.top)
+            BotaoContinuar()
         }
     }
 }
