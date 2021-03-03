@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		034B38B725EFC95F006CC28E /* DadosRecebimento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B38B625EFC95F006CC28E /* DadosRecebimento.swift */; };
+		034B38BF25F02613006CC28E /* BotaoGerarCartao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B38BE25F02613006CC28E /* BotaoGerarCartao.swift */; };
 		0AD37077A85F117D533C3531 /* Pods_Gera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E546E6C8A270CE4746AE32BF /* Pods_Gera.framework */; };
 		0EB5991E25EE6F82001DFCC8 /* VisualizacaoCartao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */; };
 		0EB5992325EE7D7C001DFCC8 /* BotaoContinuar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		034B38B625EFC95F006CC28E /* DadosRecebimento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadosRecebimento.swift; sourceTree = "<group>"; };
+		034B38BE25F02613006CC28E /* BotaoGerarCartao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotaoGerarCartao.swift; sourceTree = "<group>"; };
 		0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizacaoCartao.swift; sourceTree = "<group>"; };
 		0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotaoContinuar.swift; sourceTree = "<group>"; };
 		0EE270BC25EE5CB800A69E76 /* TelaPersonalizacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaPersonalizacao.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				0EE270BC25EE5CB800A69E76 /* TelaPersonalizacao.swift */,
 				0EB5991D25EE6F82001DFCC8 /* VisualizacaoCartao.swift */,
 				0EB5992225EE7D7C001DFCC8 /* BotaoContinuar.swift */,
+				034B38BE25F02613006CC28E /* BotaoGerarCartao.swift */,
+				034B38B625EFC95F006CC28E /* DadosRecebimento.swift */,
 			);
 			path = Gera;
 			sourceTree = "<group>";
@@ -388,7 +394,9 @@
 			files = (
 				0EB5991E25EE6F82001DFCC8 /* VisualizacaoCartao.swift in Sources */,
 				0EE270BD25EE5CB800A69E76 /* TelaPersonalizacao.swift in Sources */,
+				034B38B725EFC95F006CC28E /* DadosRecebimento.swift in Sources */,
 				A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */,
+				034B38BF25F02613006CC28E /* BotaoGerarCartao.swift in Sources */,
 				0EB5992325EE7D7C001DFCC8 /* BotaoContinuar.swift in Sources */,
 				A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */,
 			);
