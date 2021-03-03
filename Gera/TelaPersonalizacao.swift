@@ -13,7 +13,7 @@ struct TelaPersonalizacao: View {
     var body: some View {
         VStack {
             Text("Personalize seu cartão")
-                .font(.title)
+                .font(.system(size: 36, weight: .regular, design: .default))
                 .padding(.top, 30)
             
             // MARK: Pré-visualização
@@ -23,8 +23,7 @@ struct TelaPersonalizacao: View {
             Group {
                 HStack {
                     Text("Mensagem")
-                        .font(.body)
-                        .fontWeight(.bold)
+                        .font(.system(size: 18, weight: .bold, design: .default))
                         .padding(.horizontal)
                         .padding(.top)
                     Spacer()
@@ -35,8 +34,7 @@ struct TelaPersonalizacao: View {
                     .padding(.horizontal)
                 HStack {
                     Text("Ou selecione uma mensagem padrão")
-                        .font(.body)
-                        .fontWeight(.bold)
+                        .font(.system(size: 19, weight: .bold, design: .default))
                         .padding(.horizontal)
                         .padding(.top)
                     Spacer()
@@ -67,7 +65,7 @@ struct TelaPersonalizacao: View {
                         Spacer()
                     }
                 }
-                .font(.system(size: 16, weight: .regular, design: .default))
+                .font(.system(size: 17, weight: .regular, design: .default))
                 .foregroundColor(Color(.systemPurple))
             }.padding(.horizontal)
             
@@ -75,7 +73,7 @@ struct TelaPersonalizacao: View {
             Group {
                 HStack {
                     Text("Cores")
-                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .font(.system(size: 18, weight: .bold, design: .default))
                         .padding(.horizontal)
                         .padding(.top)
                     Spacer()

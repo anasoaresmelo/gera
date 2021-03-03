@@ -16,8 +16,7 @@ struct VisualizacaoCartao: View {
                 .foregroundColor(cor)
             HStack {
             Text("Sua mensagem vai aqui")
-                .font(.body)
-                .fontWeight(.bold)
+                .font(.system(size: 18, weight: .bold, design: .default))
                 .foregroundColor(.white)
                 .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/7, alignment: .leading)
                 .padding()
