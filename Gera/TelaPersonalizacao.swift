@@ -78,22 +78,34 @@ struct TelaPersonalizacao: View {
                     Spacer()
                 }
                 HStack {
-                    Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.purple)
+                        .foregroundColor(Color(.systemPurple))
                     }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(.systemRed))
+                    }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color(.systemOrange))
+                    }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.yellow)
+                        .foregroundColor(Color(.systemYellow))
+                    }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.green)
+                        .foregroundColor(Color(.systemGreen))
+                    }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color(.systemBlue))
+                    }
+                    Button(action: {}) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color(.systemGray))
+                    }
                 }
                 .frame(width: UIScreen.main.bounds.width/1.2, height: 45)
             }.padding(.horizontal)
