@@ -10,19 +10,14 @@ import SwiftUI
 struct BotaoContinuar: View {
     var body: some View {
         Button(action: {}) {
-            VStack {
-                ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
-                    RoundedRectangle(cornerRadius: 15.0, style: .continuous)
-                        .frame(width: UIScreen.main.bounds.width/1.2, height: 70)
-                        .foregroundColor(.purple)
-                    HStack {
-                        Text("Continuar")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                    }
-                }).padding(.top, 20)
+            HStack {
+                Text("Continuar")
+                    .foregroundColor(Color(.systemBackground))
             }
+            .padding()
+            .frame(width: UIScreen.main.bounds.width/1.2)
+            .background(Color(.systemPurple))
+            .cornerRadius(7.0)
         }
     }
 }

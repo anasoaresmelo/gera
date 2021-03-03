@@ -80,26 +80,19 @@ struct TelaPersonalizacao: View {
                 HStack {
                     Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        //.frame(width: 45, height: 45)
                         .foregroundColor(.purple)
                     }
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        //.frame(width: 45, height: 45)
                         .foregroundColor(.red)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        //.frame(width: 45, height: 45)
                         .foregroundColor(.orange)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        //.frame(width: 45, height: 45)
                         .foregroundColor(.yellow)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        //.frame(width: 45, height: 45)
                         .foregroundColor(.green)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 45, height: 45)
                         .foregroundColor(.blue)
                     RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .frame(width: 45, height: 45)
                         .foregroundColor(Color.gray)
                 }
                 .frame(width: UIScreen.main.bounds.width/1.2, height: 45)
@@ -107,6 +100,7 @@ struct TelaPersonalizacao: View {
             
             // MARK: Continuar
             BotaoContinuar()
+                .padding(.top)
         }
     }
 }
