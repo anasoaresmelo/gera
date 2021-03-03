@@ -11,11 +11,10 @@ struct Onboarding: View {
     var body: some View {
         VStack{
             Text("Cobrança?")
-                .font(.largeTitle)
+                .font(.system(size: 36, weight: .bold, design: .default))
             Text("A gente gera.")
-                .font(.largeTitle)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.purple)
+                .font(.system(size: 36, weight: .bold, design: .default))
+                .foregroundColor(Color(.systemPurple))
                 .padding(.bottom, 20)
             
             HStack{
@@ -23,13 +22,14 @@ struct Onboarding: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 36, height: 33, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color(.systemPurple))
                     .padding(.horizontal, 32)
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     Text("Pirangagem nunca mais.")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 17, weight: .bold, design: .default))
                         .multilineTextAlignment(.leading)
                     Text("Crie cartões personalizados de cobrança de forma simples e rápida.")
+                        .font(.system(size: 17, weight: .regular, design: .default))
                         .multilineTextAlignment(.leading)
                 }) .frame(width: UIScreen.main.bounds.width/1.5, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
             }
@@ -40,13 +40,14 @@ struct Onboarding: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40, height: 33, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color(.systemPurple))
                     .padding(.horizontal, 32)
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     Text("Sem desculpinha.")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 17, weight: .bold, design: .default))
                         .multilineTextAlignment(.leading)
                     Text("Suportamos várias formas de pagamento, de transferência até boleto bancários.")
+                        .font(.system(size: 17, weight: .regular, design: .default))
                         .multilineTextAlignment(.leading)
                 }) .frame(width: UIScreen.main.bounds.width/1.5, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
             }
@@ -57,13 +58,14 @@ struct Onboarding: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 36, height: 36, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.purple)
+                    .foregroundColor(Color(.systemPurple))
                     .padding(.horizontal, 32)
                 VStack(alignment: .leading, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                     Text("Sem desculpinha.")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .font(.system(size: 17, weight: .bold, design: .default))
                         .multilineTextAlignment(.leading)
                     Text("Suportamos várias formas de pagamento, de transferência até boleto bancários.")
+                        .font(.system(size: 17, weight: .regular, design: .default))
                         .multilineTextAlignment(.leading)
                 }) .frame(width: UIScreen.main.bounds.width/1.5, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
             }
