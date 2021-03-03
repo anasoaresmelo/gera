@@ -16,6 +16,7 @@ struct Onboarding: View {
                 .font(.largeTitle)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.purple)
+                .padding(.bottom, 20)
             
             HStack{
                 Image(systemName: "paperplane.fill")
@@ -67,16 +68,18 @@ struct Onboarding: View {
                 }) .frame(width: UIScreen.main.bounds.width/1.5, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
             }
             .padding()
-                        
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
-                        .frame(width: UIScreen.main.bounds.width/1.2, height: 70, alignment: .center)
-                        .foregroundColor(.purple)
-                    Text("Começar")
-                        .foregroundColor(.white)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                }
+            
+            Button(action: {
+                
+                
+            }) {
+                
+                Text("Começar")
+                    .foregroundColor(Color(.systemBackground))
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width/1.2)
+                    .background(Color(.systemPurple))
+                    .cornerRadius(7)
             }
             .padding(.top, 30)
         }
