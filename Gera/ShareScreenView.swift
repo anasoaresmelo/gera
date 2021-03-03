@@ -26,7 +26,13 @@ struct ShareScreenView: View {
                 .padding(.vertical)
             
             
+            
             Button(action: {
+                
+                let shareAll = [BackendConnector.shared.lastPassData!.dataToFile(fileName: "Cartão Gera.pkpass")]
+                let shareView = UIActivityViewController(activityItems: shareAll as [Any], applicationActivities: nil)
+                UIApplication.shared.windows.first?.rootViewController?.present(shareView, animated: true, completion: nil)
+                
                 
             }) {
                 HStack {
@@ -34,7 +40,7 @@ struct ShareScreenView: View {
                         .foregroundColor(Color(.systemBackground))
                     Text("Compartilhar cartão")
                         .foregroundColor(Color(.systemBackground))
-                        
+                    
                     
                 }
                 .padding()
@@ -43,6 +49,10 @@ struct ShareScreenView: View {
             }
             
             Button(action: {
+                
+                let shareAll = [BackendConnector.shared.lastPassUrl! as NSURL]
+                let shareView = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+                UIApplication.shared.windows.first?.rootViewController?.present(shareView, animated: true, completion: nil)
                 
             }) {
                 Image(systemName: "link")
@@ -54,7 +64,7 @@ struct ShareScreenView: View {
             
             Image("gera-logo")
                 .padding(.top, 100)
-                
+            
             
             
         }
