@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TelaPersonalizacao: View {
-    @State private var mensagem = ""
-    @State private var cor = Color.blue
+    @State var mensagem = ""
+    @State var cor = Color(.systemPurple)
     var body: some View {
         VStack {
             Text("Personalize seu cartão")
@@ -17,7 +17,7 @@ struct TelaPersonalizacao: View {
                 .padding(.top, 30)
             
             // MARK: Pré-visualização
-            VisualizacaoCartao()
+            VisualizacaoCartao(cor: $cor, mensagem: $mensagem)
             
             // MARK: Mensagem
             Group {
@@ -41,7 +41,9 @@ struct TelaPersonalizacao: View {
                 }
                 VStack {
                     HStack {
-                        Button(action: {}) {
+                        Button(action: {
+                            mensagem = "Tô mandando a conta!"
+                        }) {
                             Text("Tô mandando a conta!")
                         }
                         .padding(.leading)
@@ -49,7 +51,9 @@ struct TelaPersonalizacao: View {
                         Spacer()
                     }
                     HStack {
-                        Button(action: {}) {
+                        Button(action: {
+                            mensagem = "Você me deve!"
+                        }) {
                             Text("Você me deve!")
                         }
                         .padding(.leading)
@@ -57,7 +61,9 @@ struct TelaPersonalizacao: View {
                         Spacer()
                     }
                     HStack{
-                        Button(action: {}) {
+                        Button(action: {
+                            mensagem = "Pague meu dinheiro!"
+                        }) {
                             Text("Pague meu dinheiro!")
                         }
                         .padding(.leading)
@@ -65,7 +71,7 @@ struct TelaPersonalizacao: View {
                         Spacer()
                     }
                 }
-                .font(.system(size: 17, weight: .regular, design: .default))
+                .font(.system(size: 17, weight: .medium, design: .default))
                 .foregroundColor(Color(.systemPurple))
             }.padding(.horizontal)
             
@@ -79,31 +85,45 @@ struct TelaPersonalizacao: View {
                     Spacer()
                 }
                 HStack {
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemPurple)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemPurple))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemRed)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemRed))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemOrange)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemOrange))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemYellow)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemYellow))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemGreen)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemGreen))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemBlue)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemBlue))
                     }
-                    Button(action: {}) {
+                    Button(action: {
+                        self.cor = Color(.systemGray)
+                    }) {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                             .foregroundColor(Color(.systemGray))
                     }
