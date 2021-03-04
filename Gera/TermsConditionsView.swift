@@ -32,30 +32,33 @@ struct TermsConditionsView: View {
         ScrollView {
             VStack {
                 Parma(termsOfService + privacyPolicy)
+                
+                Button(action: {
+                    
+                }) {
+                    Text("Concordar")
+                        .foregroundColor(Color(.systemBackground))
+                    
+                }
+                .padding()
+                .background(Color(.systemPurple))
+                .cornerRadius(7)
+                .padding(.top, 20)
+                
+                Button(action: {
+                    
+                }) {
+                    Text("Voltar")
+                        .foregroundColor(Color(.systemPurple))
+                    
+                }
+                .padding(.top, 10)
+                .cornerRadius(7)
 
             }.padding()
         }
         
-        Button(action: {
-            
-        }) {
-            Text("Concordar")
-                .foregroundColor(Color(.systemBackground))
-            
-        }
-        .padding()
-        .background(Color(.systemPurple))
-        .cornerRadius(7)
         
-        Button(action: {
-            
-        }) {
-            Text("Voltar")
-                .foregroundColor(Color(.systemPurple))
-            
-        }
-        .padding()
-        .cornerRadius(7)
     }
 }
 
