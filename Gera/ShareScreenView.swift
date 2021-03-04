@@ -62,7 +62,10 @@ struct ShareScreenView: View {
             }
             .padding()
             
-            Image("gera-logo")
+            Image("GeraLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 30, alignment: .center)
                 .padding(.top, 100)
             
             
