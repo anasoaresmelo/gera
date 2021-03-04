@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct DadosRecebimento: View {
     
     @State var selected = 0
     @State var documento = 0
@@ -52,11 +52,13 @@ struct SwiftUIView: View {
                         HStack{
                             Text("Valor")
                             TextField("Opicional", text: $valor)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
                             Text("Código do Banco")
                             TextField("Obrigatório", text: $codigoBanco)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
@@ -67,6 +69,7 @@ struct SwiftUIView: View {
                         HStack{
                             Text("Agência")
                             TextField("Obrigatório", text: $agencia)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
@@ -97,6 +100,7 @@ struct SwiftUIView: View {
                                 Text("CNPJ")
                             }
                             TextField("Obrigatório", text: $cpfCnpj)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
@@ -118,11 +122,13 @@ struct SwiftUIView: View {
                         HStack{
                             Text("Valor")
                             TextField("Opicional", text: $valor)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
                             Text("URL do Nubank")
                             TextField("Obrigatório", text: $urlNubank)
+                                .keyboardType(.URL)
                         }
                         Divider()
                         HStack{
@@ -152,7 +158,8 @@ struct SwiftUIView: View {
                             else {
                                 Text("CNPJ")
                             }
-                            TextField("Obrigatório", text: $valor)
+                            TextField("Obrigatório", text: $cpfCnpj)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                     }.padding(.horizontal)
@@ -164,6 +171,7 @@ struct SwiftUIView: View {
                     HStack{
                         Text("Valor")
                         TextField("Opicional", text: $valor)
+                            .keyboardType(.decimalPad)
                     }
                     Divider()
                     HStack{
@@ -181,11 +189,13 @@ struct SwiftUIView: View {
                         HStack{
                             Text("Valor")
                             TextField("Obrigatório", text: $valor)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
                             Text("Linha digitável")
                             TextField("Obrigatório", text: $linhaDigitavel)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                         HStack{
@@ -210,7 +220,8 @@ struct SwiftUIView: View {
                             else {
                                 Text("CNPJ")
                             }
-                            TextField("Obrigatório", text: $valor)
+                            TextField("Obrigatório", text: $cpfCnpj)
+                                .keyboardType(.decimalPad)
                         }
                         Divider()
                     }.padding(.horizontal)
@@ -226,6 +237,6 @@ struct SwiftUIView: View {
 
 struct DadosRecebimento_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        DadosRecebimento()
     }
 }
