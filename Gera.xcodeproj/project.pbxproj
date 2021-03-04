@@ -11,6 +11,7 @@
 		A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A25ED364300BB8659 /* BackendConnector.swift */; };
 		A730E89825EE68B500BB8659 /* AddPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89725EE68B500BB8659 /* AddPassView.swift */; };
 		A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89C25EE6C5100BB8659 /* TestPassView.swift */; };
+		A71C940625EE815A0082D675 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71C940525EE815A0082D675 /* Onboarding.swift */; };
 		A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2108225ED329C0035EF2B /* GeraApp.swift */; };
 		A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2108425ED329D0035EF2B /* ContentView.swift */; };
 		A7E2108725ED329F0035EF2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E2108625ED329F0035EF2B /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		A730E88A25ED364300BB8659 /* BackendConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConnector.swift; sourceTree = "<group>"; };
 		A730E89725EE68B500BB8659 /* AddPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassView.swift; sourceTree = "<group>"; };
 		A730E89C25EE6C5100BB8659 /* TestPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPassView.swift; sourceTree = "<group>"; };
+		A71C940525EE815A0082D675 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		A7E2107F25ED329C0035EF2B /* Gera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E2108225ED329C0035EF2B /* GeraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraApp.swift; sourceTree = "<group>"; };
 		A7E2108425ED329D0035EF2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				A7E2108B25ED329F0035EF2B /* Info.plist */,
 				A7E2108825ED329F0035EF2B /* Preview Content */,
 				A730E88A25ED364300BB8659 /* BackendConnector.swift */,
+				A71C940525EE815A0082D675 /* Onboarding.swift */,
 			);
 			path = Gera;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			files = (
 				A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */,
 				A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */,
+				A71C940625EE815A0082D675 /* Onboarding.swift in Sources */,
 				A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */,
 				A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */,
 				A730E89825EE68B500BB8659 /* AddPassView.swift in Sources */,
