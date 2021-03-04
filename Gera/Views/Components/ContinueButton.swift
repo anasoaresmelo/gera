@@ -1,5 +1,5 @@
 //
-//  BotaoContinuar.swift
+//  ContinueButton.swift
 //  Gera
 //
 //  Created by Ana Carolina Soares de Melo on 02/03/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BotaoContinuar: View {
+struct ContinueButton: View {
     var body: some View {
         Button(action: {}) {
             HStack {
@@ -22,8 +22,8 @@ struct BotaoContinuar: View {
     }
 }
     
-    struct BotaoContinuar_Previews: PreviewProvider {
+    struct ContinueButton_Previews: PreviewProvider {
         static var previews: some View {
-            BotaoContinuar()
+            ContinueButton()
         }
     }

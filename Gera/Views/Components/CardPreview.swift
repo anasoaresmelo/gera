@@ -1,5 +1,5 @@
 //
-//  VisualizacaoCartao.swift
+//  CardPreview.swift
 //  Gera
 //
 //  Created by Ana Carolina Soares de Melo on 02/03/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VisualizacaoCartao: View {
+struct CardPreview: View {
     @Binding var cor: Color
     @Binding var mensagem: String
     

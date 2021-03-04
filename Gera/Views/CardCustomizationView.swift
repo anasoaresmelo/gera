@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TelaPersonalizacao: View {
+struct CardCustomizationView: View {
     @State var mensagem = ""
     @State var cor = Color(.systemPurple)
     var body: some View {
@@ -17,7 +17,7 @@ struct TelaPersonalizacao: View {
                 .padding(.top, 30)
             
             // MARK: Pré-visualização
-            VisualizacaoCartao(cor: $cor, mensagem: $mensagem)
+            CardPreview(cor: $cor, mensagem: $mensagem)
             
             // MARK: Mensagem
             Group {
@@ -132,14 +132,14 @@ struct TelaPersonalizacao: View {
             }.padding(.horizontal)
             
             // MARK: Continuar
-            BotaoContinuar()
+            ContinueButton()
                 .padding(.top, 20)
         }
     }
 }
 
-struct TelaPersonalizacao_Previews: PreviewProvider {
+struct CardCustomizationView_Previews: PreviewProvider {
     static var previews: some View {
-        TelaPersonalizacao()
+        CardCustomizationView()
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Onboarding: View {
+struct OnboardingView: View {
     var body: some View {
         VStack{
             Text("Cobrança?")
@@ -90,9 +90,9 @@ struct Onboarding: View {
 }
 
 
-struct Onboarding_Previews: PreviewProvider {
+struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        Onboarding()
+        OnboardingView()
             .previewDevice("iPhone 11")
     }
 }
