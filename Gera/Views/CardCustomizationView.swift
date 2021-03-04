@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CardCustomizationView: View {
+    @Binding var showModal: Bool
     @State var mensagem = ""
     @State var cor = Color(.systemPurple)
     var body: some View {
+        NavigationView {
         VStack {
             Text("Personalize seu cartão")
                 .font(.system(size: 36, weight: .regular, design: .default))
@@ -132,14 +134,24 @@ struct CardCustomizationView: View {
             }.padding(.horizontal)
             
             // MARK: Continuar
-            ContinueButton()
+            NavigationLink(destination: CardPaymentDataView()) {
+                HStack {
+                    Text("Continuar")
+                        .foregroundColor(Color(.systemBackground))
+                }
+                .padding()
+                .frame(width: UIScreen.main.bounds.width/1.2)
+                .background(Color(.systemPurple))
+                .cornerRadius(7.0)
+            }
                 .padding(.top, 20)
         }
     }
 }
+}
 
 struct CardCustomizationView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCustomizationView()
+        CardCustomizationView(showModal: .constant(true))
     }
 }

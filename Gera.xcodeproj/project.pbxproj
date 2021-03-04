@@ -147,10 +147,10 @@
 				A71C940525EE815A0082D675 /* OnboardingView.swift */,
 				10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */,
 				0EE270BC25EE5CB800A69E76 /* CardCustomizationView.swift */,
-				A730E89725EE68B500BB8659 /* AddPassView.swift */,
-				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
-				A730E89C25EE6C5100BB8659 /* TestPassView.swift */,
 				A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */,
+				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
+				A730E89725EE68B500BB8659 /* AddPassView.swift */,
+				A730E89C25EE6C5100BB8659 /* TestPassView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

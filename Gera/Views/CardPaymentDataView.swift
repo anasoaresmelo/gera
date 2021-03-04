@@ -228,7 +228,16 @@ struct CardPaymentDataView: View {
                 }.padding(.horizontal)
             }
             Spacer()
-            GenerateCardButton()
+            NavigationLink(destination: ShareScreenView()) {
+                HStack {
+                    Text("Gerar Cartão")
+                        .foregroundColor(Color(.systemBackground))
+                }
+                .padding()
+                .frame(width: UIScreen.main.bounds.width/1.2)
+                .background(Color(.systemPurple))
+                .cornerRadius(7.0)
+            }
                 .padding(.bottom)
         }
         .padding(.vertical)

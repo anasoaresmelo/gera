@@ -18,7 +18,7 @@ struct AddPassView: View {
 
 //struct AddPassView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddPassView(pass: <#PKPass#>)
+//        AddPassView(pass: PKPass)
 //    }
 //}
 
