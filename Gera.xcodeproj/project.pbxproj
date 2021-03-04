@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		A7E2109525ED329F0035EF2B /* GeraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2109425ED329F0035EF2B /* GeraTests.swift */; };
 		A7E210A025ED329F0035EF2B /* GeraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2109F25ED329F0035EF2B /* GeraUITests.swift */; };
 		A7E210B625ED33190035EF2B /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E210B525ED33190035EF2B /* PassKit.framework */; };
+		A7F7FE2425F11C1700122301 /* PRIVACY_POLICY_PT_BR.md in Resources */ = {isa = PBXBuildFile; fileRef = A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */; };
+		A7F7FE2525F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md in Resources */ = {isa = PBXBuildFile; fileRef = A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */; };
 		E1AA90BE599875B00E74816F /* Pods_GeraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738245AA0725BAD8FBB13D5A /* Pods_GeraTests.framework */; };
 		F32B818F0A116EA0E2D5DDD1 /* Pods_Gera_GeraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43A08133E9D5301BF5F9CDB /* Pods_Gera_GeraUITests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		A7E210A125ED329F0035EF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7E210B325ED33190035EF2B /* Gera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gera.entitlements; sourceTree = "<group>"; };
 		A7E210B525ED33190035EF2B /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PRIVACY_POLICY_PT_BR.md; path = Docs/PRIVACY_POLICY_PT_BR.md; sourceTree = SOURCE_ROOT; };
+		A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = TERMS_OF_SERVICE_PT_BR.md; path = Docs/TERMS_OF_SERVICE_PT_BR.md; sourceTree = SOURCE_ROOT; };
 		AFB4A2046FAB69702EE8E344 /* Pods-GeraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeraTests.release.xcconfig"; path = "Target Support Files/Pods-GeraTests/Pods-GeraTests.release.xcconfig"; sourceTree = "<group>"; };
 		C43A08133E9D5301BF5F9CDB /* Pods_Gera_GeraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gera_GeraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC625E652361B7078982AFE2 /* Pods-Gera-GeraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera-GeraUITests.release.xcconfig"; path = "Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 		A7E2108125ED329C0035EF2B /* Gera */ = {
 			isa = PBXGroup;
 			children = (
+				A7F7FE0F25F119B000122301 /* Docs */,
 				A7A1FFF625EE816B00ACCA43 /* Views */,
 				A7E210B325ED33190035EF2B /* Gera.entitlements */,
 				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
@@ -199,6 +204,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A7F7FE0F25F119B000122301 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */,
+				A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,6 +224,7 @@
 				A7E2107B25ED329C0035EF2B /* Sources */,
 				A7E2107C25ED329C0035EF2B /* Frameworks */,
 				A7E2107D25ED329C0035EF2B /* Resources */,
+				82EB819D361D927A2E04B5CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,6 +262,7 @@
 				A7E2109725ED329F0035EF2B /* Sources */,
 				A7E2109825ED329F0035EF2B /* Frameworks */,
 				A7E2109925ED329F0035EF2B /* Resources */,
+				94085CB9EC47379D8D33C398 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,7 +322,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E2108A25ED329F0035EF2B /* Preview Assets.xcassets in Resources */,
+				A7F7FE2525F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md in Resources */,
 				A7E2108725ED329F0035EF2B /* Assets.xcassets in Resources */,
+				A7F7FE2425F11C1700122301 /* PRIVACY_POLICY_PT_BR.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +387,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82EB819D361D927A2E04B5CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94085CB9EC47379D8D33C398 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DAE5C644656ECCCD44B21D56 /* [CP] Check Pods Manifest.lock */ = {

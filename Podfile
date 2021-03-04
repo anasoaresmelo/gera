@@ -6,6 +6,7 @@ target 'Gera' do
   use_frameworks!
 
   # Pods for Gera
+  pod 'Parma'
 
   target 'GeraTests' do
     inherit! :search_paths
