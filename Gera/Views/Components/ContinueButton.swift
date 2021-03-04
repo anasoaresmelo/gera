@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ContinueButton: View {
+    
+    var action: (() -> Void)?
+
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            if (action != nil) {
+                action!()
+            }
+        }) {
             HStack {
                 Text("Continuar")
                     .foregroundColor(Color(.systemBackground))
