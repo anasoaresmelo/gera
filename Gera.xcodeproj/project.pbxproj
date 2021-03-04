@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0AD37077A85F117D533C3531 /* Pods_Gera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E546E6C8A270CE4746AE32BF /* Pods_Gera.framework */; };
+		1039438D25EE80D000CC0704 /* ShareScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1039438C25EE80D000CC0704 /* ShareScreenView.swift */; };
+		10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */; };
 		A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A25ED364300BB8659 /* BackendConnector.swift */; };
 		A730E89825EE68B500BB8659 /* AddPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89725EE68B500BB8659 /* AddPassView.swift */; };
 		A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89C25EE6C5100BB8659 /* TestPassView.swift */; };
@@ -19,6 +21,8 @@
 		A7E2109525ED329F0035EF2B /* GeraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2109425ED329F0035EF2B /* GeraTests.swift */; };
 		A7E210A025ED329F0035EF2B /* GeraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2109F25ED329F0035EF2B /* GeraUITests.swift */; };
 		A7E210B625ED33190035EF2B /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E210B525ED33190035EF2B /* PassKit.framework */; };
+		A7F7FE2425F11C1700122301 /* PRIVACY_POLICY_PT_BR.md in Resources */ = {isa = PBXBuildFile; fileRef = A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */; };
+		A7F7FE2525F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md in Resources */ = {isa = PBXBuildFile; fileRef = A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */; };
 		E1AA90BE599875B00E74816F /* Pods_GeraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738245AA0725BAD8FBB13D5A /* Pods_GeraTests.framework */; };
 		F32B818F0A116EA0E2D5DDD1 /* Pods_Gera_GeraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43A08133E9D5301BF5F9CDB /* Pods_Gera_GeraUITests.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1039438C25EE80D000CC0704 /* ShareScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareScreenView.swift; sourceTree = "<group>"; };
+		10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsConditionsView.swift; sourceTree = "<group>"; };
 		139DF2B13F72A515CAF29432 /* Pods-Gera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.release.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.release.xcconfig"; sourceTree = "<group>"; };
 		18A8595813D6E88573558C76 /* Pods-Gera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.debug.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.debug.xcconfig"; sourceTree = "<group>"; };
 		738245AA0725BAD8FBB13D5A /* Pods_GeraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +68,8 @@
 		A7E210A125ED329F0035EF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7E210B325ED33190035EF2B /* Gera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gera.entitlements; sourceTree = "<group>"; };
 		A7E210B525ED33190035EF2B /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PRIVACY_POLICY_PT_BR.md; path = Docs/PRIVACY_POLICY_PT_BR.md; sourceTree = SOURCE_ROOT; };
+		A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = TERMS_OF_SERVICE_PT_BR.md; path = Docs/TERMS_OF_SERVICE_PT_BR.md; sourceTree = SOURCE_ROOT; };
 		AFB4A2046FAB69702EE8E344 /* Pods-GeraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeraTests.release.xcconfig"; path = "Target Support Files/Pods-GeraTests/Pods-GeraTests.release.xcconfig"; sourceTree = "<group>"; };
 		C43A08133E9D5301BF5F9CDB /* Pods_Gera_GeraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gera_GeraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC625E652361B7078982AFE2 /* Pods-Gera-GeraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera-GeraUITests.release.xcconfig"; path = "Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,8 +154,11 @@
 		A7E2108125ED329C0035EF2B /* Gera */ = {
 			isa = PBXGroup;
 			children = (
+				A7F7FE0F25F119B000122301 /* Docs */,
 				A7A1FFF625EE816B00ACCA43 /* Views */,
 				A7E210B325ED33190035EF2B /* Gera.entitlements */,
+				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
+				10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */,
 				A7E2108225ED329C0035EF2B /* GeraApp.swift */,
 				A7E2108425ED329D0035EF2B /* ContentView.swift */,
 				A7E2108625ED329F0035EF2B /* Assets.xcassets */,
@@ -196,6 +207,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A7F7FE0F25F119B000122301 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				A7F7FE2225F11C1700122301 /* PRIVACY_POLICY_PT_BR.md */,
+				A7F7FE2325F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +227,7 @@
 				A7E2107B25ED329C0035EF2B /* Sources */,
 				A7E2107C25ED329C0035EF2B /* Frameworks */,
 				A7E2107D25ED329C0035EF2B /* Resources */,
+				82EB819D361D927A2E04B5CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,6 +265,7 @@
 				A7E2109725ED329F0035EF2B /* Sources */,
 				A7E2109825ED329F0035EF2B /* Frameworks */,
 				A7E2109925ED329F0035EF2B /* Resources */,
+				94085CB9EC47379D8D33C398 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,7 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7E2108A25ED329F0035EF2B /* Preview Assets.xcassets in Resources */,
+				A7F7FE2525F11C1700122301 /* TERMS_OF_SERVICE_PT_BR.md in Resources */,
 				A7E2108725ED329F0035EF2B /* Assets.xcassets in Resources */,
+				A7F7FE2425F11C1700122301 /* PRIVACY_POLICY_PT_BR.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +392,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		82EB819D361D927A2E04B5CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gera/Pods-Gera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94085CB9EC47379D8D33C398 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gera-GeraUITests/Pods-Gera-GeraUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DAE5C644656ECCCD44B21D56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1039438D25EE80D000CC0704 /* ShareScreenView.swift in Sources */,
+				10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */,
 				A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */,
 				A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */,
 				A71C940625EE815A0082D675 /* Onboarding.swift in Sources */,
@@ -564,7 +624,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Gera/Preview Content\"";
-				DEVELOPMENT_TEAM = QS23PKCUZD;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -590,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Gera/Preview Content\"";
-				DEVELOPMENT_TEAM = QS23PKCUZD;
+				DEVELOPMENT_TEAM = YT3CV5CM6F;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Gera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
