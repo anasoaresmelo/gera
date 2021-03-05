@@ -15,8 +15,6 @@
 		10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */; };
 		A71C940625EE815A0082D675 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71C940525EE815A0082D675 /* OnboardingView.swift */; };
 		A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A25ED364300BB8659 /* BackendConnector.swift */; };
-		A730E89825EE68B500BB8659 /* AddPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89725EE68B500BB8659 /* AddPassView.swift */; };
-		A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E89C25EE6C5100BB8659 /* TestPassView.swift */; };
 		A77F3AFB25F180AD0019B748 /* CardPaymentDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */; };
 		A77F3B0025F180BC0019B748 /* GenerateCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F3AFF25F180BC0019B748 /* GenerateCardButton.swift */; };
 		A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E2108225ED329C0035EF2B /* GeraApp.swift */; };
@@ -60,8 +58,6 @@
 		738245AA0725BAD8FBB13D5A /* Pods_GeraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71C940525EE815A0082D675 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A730E88A25ED364300BB8659 /* BackendConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConnector.swift; sourceTree = "<group>"; };
-		A730E89725EE68B500BB8659 /* AddPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPassView.swift; sourceTree = "<group>"; };
-		A730E89C25EE6C5100BB8659 /* TestPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPassView.swift; sourceTree = "<group>"; };
 		A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentDataView.swift; sourceTree = "<group>"; };
 		A77F3AFF25F180BC0019B748 /* GenerateCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCardButton.swift; sourceTree = "<group>"; };
 		A7E2107F25ED329C0035EF2B /* Gera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gera.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,9 +143,7 @@
 				A71C940525EE815A0082D675 /* OnboardingView.swift */,
 				10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */,
 				0EE270BC25EE5CB800A69E76 /* CardCustomizationView.swift */,
-				A730E89725EE68B500BB8659 /* AddPassView.swift */,
 				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
-				A730E89C25EE6C5100BB8659 /* TestPassView.swift */,
 				A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */,
 			);
 			path = Views;
@@ -324,11 +318,10 @@
 			};
 			buildConfigurationList = A7E2107A25ED329C0035EF2B /* Build configuration list for PBXProject "Gera" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				"pt-BR",
 			);
 			mainGroup = A7E2107625ED329C0035EF2B;
 			productRefGroup = A7E2108025ED329C0035EF2B /* Products */;
@@ -481,7 +474,6 @@
 				1039438D25EE80D000CC0704 /* ShareScreenView.swift in Sources */,
 				10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */,
 				A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */,
-				A730E89D25EE6C5100BB8659 /* TestPassView.swift in Sources */,
 				A71C940625EE815A0082D675 /* OnboardingView.swift in Sources */,
 				A77F3AFB25F180AD0019B748 /* CardPaymentDataView.swift in Sources */,
 				0EB5991E25EE6F82001DFCC8 /* CardPreview.swift in Sources */,
@@ -490,7 +482,6 @@
 				0EB5992325EE7D7C001DFCC8 /* ContinueButton.swift in Sources */,
 				A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */,
 				A77F3B0025F180BC0019B748 /* GenerateCardButton.swift in Sources */,
-				A730E89825EE68B500BB8659 /* AddPassView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
