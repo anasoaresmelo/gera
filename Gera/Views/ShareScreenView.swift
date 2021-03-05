@@ -31,7 +31,15 @@ struct ShareScreenView: View {
                 
                 let shareAll = [BackendConnector.shared.lastPassData!.dataToFile(fileName: "Cartão Gera.pkpass")]
                 let shareView = UIActivityViewController(activityItems: shareAll as [Any], applicationActivities: nil)
-                UIApplication.shared.windows.first?.rootViewController?.present(shareView, animated: true, completion: nil)
+                
+                if var topController = UIApplication.shared.windows.first?.rootViewController {
+                    while let presentedViewController = topController.presentedViewController {
+                        topController = presentedViewController
+                    }
+                    
+                    topController.present(shareView, animated: true, completion: nil)
+                    
+                }
                 
                 
             }) {
@@ -52,7 +60,14 @@ struct ShareScreenView: View {
                 
                 let shareAll = [BackendConnector.shared.lastPassUrl! as NSURL]
                 let shareView = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
-                UIApplication.shared.windows.first?.rootViewController?.present(shareView, animated: true, completion: nil)
+                if var topController = UIApplication.shared.windows.first?.rootViewController {
+                    while let presentedViewController = topController.presentedViewController {
+                        topController = presentedViewController
+                    }
+                    
+                    topController.present(shareView, animated: true, completion: nil)
+                    
+                }
                 
             }) {
                 Image(systemName: "link")

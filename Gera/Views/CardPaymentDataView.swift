@@ -25,6 +25,7 @@ struct CardPaymentDataView: View {
     @State var userPicPay = ""
     @State var linhaDigitavel = ""
     @State var showErrorAlert = false
+    @State var completeAction = false
     
     var body: some View {
         ScrollView {
@@ -232,50 +233,42 @@ struct CardPaymentDataView: View {
                     }.padding(.horizontal)
                 }
                 Spacer()
-                NavigationLink(destination: ShareScreenView()) {
-                    HStack {
-                        Text("Gerar Cartão")
-                            .foregroundColor(Color(.systemBackground))
-                    }
-                    .padding()
-                    .frame(width: UIScreen.main.bounds.width/1.2)
-                    .background(Color(.systemPurple))
-                    .cornerRadius(7.0)
-                }
-                    .simultaneousGesture(TapGesture().onEnded{
-                        showLoading()
+                GenerateCardButton(action: {
+                    showLoading()
                     
-                        var tipo = [0: "febraban",
-                                    1: "nubank",
-                                    2: "picpay",
-                                    3: "boleto"]
-                        var accountTypes = [
-                            0: "Conta Corrente",
-                            1: "Conta Poupança"
-                        ]
-                        
-                        let passRequestData = PassRequest(
-                            type: tipo[selected]!,
-                            message: BackendConnector.shared.message,
-                            recipientName: self.titular,
-                            recipientPhoneNumber: self.telefone,
-                            value: self.valor,
-                            imageUrl: nil,
-                            picpayUser: self.userPicPay,
-                            boletoDigitableLine: self.linhaDigitavel,
-                            cpf: documento == 0 ? self.cpfCnpj : nil,
-                            cnpj: documento == 1 ? self.cpfCnpj : nil,
-                            bankCode: codigoBanco,
-                            bankName: nomeBanco,
-                            agencyNumber: agencia,
-                            accountNumber: conta,
-                            accountType: accountTypes[tipoConta],
-                            nubankUrl: urlNubank,
-                            foregroundColor: nil,
-                            backgroundColor: BackendConnector.shared.backgroundColor)
-                        
-                        BackendConnector.shared.requestPassFromServer(cardData: passRequestData, withCompletionHandler: completeCard, withErrorHandler: handleFailedCard)
-                            })
+                    let tipo = [0: "febraban",
+                                1: "nubank",
+                                2: "picpay",
+                                3: "boleto"]
+                    let accountTypes = [
+                        0: "Conta Corrente",
+                        1: "Conta Poupança"
+                    ]
+                    
+                    let passRequestData = PassRequest(
+                        type: tipo[selected]!,
+                        message: BackendConnector.shared.message,
+                        recipientName: self.titular,
+                        recipientPhoneNumber: self.telefone,
+                        value: self.valor,
+                        imageUrl: nil,
+                        picpayUser: self.userPicPay,
+                        boletoDigitableLine: self.linhaDigitavel,
+                        cpf: documento == 0 ? self.cpfCnpj : nil,
+                        cnpj: documento == 1 ? self.cpfCnpj : nil,
+                        bankCode: codigoBanco,
+                        bankName: nomeBanco,
+                        agencyNumber: agencia,
+                        accountNumber: conta,
+                        accountType: accountTypes[tipoConta],
+                        nubankUrl: urlNubank,
+                        foregroundColor: nil,
+                        backgroundColor: BackendConnector.shared.backgroundColor)
+                    
+                BackendConnector.shared.requestPassFromServer(cardData: passRequestData, withCompletionHandler: completeCard, withErrorHandler: handleFailedCard)
+                })
+                    .padding(.bottom)
+                NavigationLink(destination: ShareScreenView(), isActive: $completeAction, label: { EmptyView() }).disabled(true)
                     .padding(.bottom)
             }
             .padding(.vertical)
@@ -287,27 +280,47 @@ struct CardPaymentDataView: View {
     }
     
     func showLoading() {
-        let alert = UIAlertController(title: nil, message: "Um momento...", preferredStyle: .alert)
 
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.medium
-        loadingIndicator.startAnimating();
+        if var topController = UIApplication.shared.windows.first?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
 
-        alert.view.addSubview(loadingIndicator)
-        
-        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: nil, message: "Um momento...", preferredStyle: .alert)
+
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.medium
+            loadingIndicator.startAnimating();
+
+            alert.view.addSubview(loadingIndicator)
+            
+            topController.present(alert, animated: true, completion: nil)
+        }
     }
     
     func hideLoading() {
-        UIApplication.shared.windows.first?.rootViewController?.dismiss(animated: true, completion: nil)
+        if var topController = UIApplication.shared.windows.first?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            topController.dismiss(animated: true, completion: nil)
+        }
 
     }
     
     func completeCard(pass: PKPass) {
         hideLoading()
-        let addPassesController = PKAddPassesViewController(pass: pass)!
-        UIApplication.shared.windows.first?.rootViewController?.present(addPassesController, animated: true, completion: nil)
+        
+        if var topController = UIApplication.shared.windows.first?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            let addPassesController = PKAddPassesViewController(pass: pass)!
+            topController.present(addPassesController, animated: true, completion: nil)
+            completeAction = true
+        }
+        
     }
     
     func handleFailedCard() {
