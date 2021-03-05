@@ -11,6 +11,7 @@ struct CardCustomizationView: View {
     @Binding var showModal: Bool
     @State var mensagem = ""
     @State var cor = Color(.systemPurple)
+    @State var rgbColor = "rgb(175, 82, 222)"
     var body: some View {
         NavigationView {
             VStack {
@@ -89,42 +90,49 @@ struct CardCustomizationView: View {
                     HStack {
                         Button(action: {
                             self.cor = Color(.systemPurple)
+                            self.rgbColor = "rgb(175, 82, 222)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemPurple))
                         }
                         Button(action: {
                             self.cor = Color(.systemRed)
+                            self.rgbColor = "rgb(255, 59, 48)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemRed))
                         }
                         Button(action: {
                             self.cor = Color(.systemOrange)
+                            self.rgbColor = "rgb(255, 149, 0)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemOrange))
                         }
                         Button(action: {
                             self.cor = Color(.systemYellow)
+                            self.rgbColor = "rgb(255, 204, 0)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemYellow))
                         }
                         Button(action: {
                             self.cor = Color(.systemGreen)
+                            self.rgbColor = "rgb(52, 199, 89)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemGreen))
                         }
                         Button(action: {
                             self.cor = Color(.systemBlue)
+                            self.rgbColor = "rgb(0, 122, 255)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemBlue))
                         }
                         Button(action: {
                             self.cor = Color(.systemGray)
+                            self.rgbColor = "rgb(142, 142, 147)"
                         }) {
                             RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                                 .foregroundColor(Color(.systemGray))
@@ -144,6 +152,10 @@ struct CardCustomizationView: View {
                     .background(Color(.systemPurple))
                     .cornerRadius(7.0)
                 }
+                .simultaneousGesture(TapGesture().onEnded{
+                    BackendConnector.shared.message = mensagem
+                    BackendConnector.shared.backgroundColor = rgbColor
+                })
                 .padding(.top, 20)
             }
         }
