@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct GenerateCardButton: View {
+    var action: (() -> Void)?
+    
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            if (action != nil) {
+                action!()
+            }
+        }) {
             VStack {
                 ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
                     RoundedRectangle(cornerRadius: 15.0, style: .continuous)

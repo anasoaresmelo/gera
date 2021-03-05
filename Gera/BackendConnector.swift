@@ -28,6 +28,7 @@ class BackendConnector {
     let baseUrlString = "https://gera-server.herokuapp.com"
     static var shared = BackendConnector()
     var message: String = ""
+    var backgroundColor: String?
     var imageUrl: String?
     var lastPassUrl: URL?
     var lastPass: PKPass?
