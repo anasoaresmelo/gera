@@ -62,10 +62,10 @@ struct OnboardingView: View {
                     .foregroundColor(Color(.systemPurple))
                     .padding(.horizontal, 32)
                 VStack(alignment: .leading, spacing: nil, content: {
-                    Text("Sem desculpinha.")
+                    Text("Pra pagar nem precisa do app.")
                         .font(.system(size: 17, weight: .bold, design: .default))
                         .multilineTextAlignment(.leading)
-                    Text("Suportamos várias formas de pagamento, de transferência até boleto bancários.")
+                    Text("Compartilhe os cartões em qualquer rede social, ou adicione ao Apple Wallet.")
                         .font(.system(size: 17, weight: .regular, design: .default))
                         .multilineTextAlignment(.leading)
                 }) .frame(width: UIScreen.main.bounds.width/1.5, height: 100, alignment: .leading)
