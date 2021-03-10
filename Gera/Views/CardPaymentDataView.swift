@@ -316,8 +316,9 @@ struct CardPaymentDataView: View {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
-            let addPassesController = PKAddPassesViewController(pass: pass)!
-            topController.present(addPassesController, animated: true, completion: nil)
+            if let addPassesController = PKAddPassesViewController(pass: pass) {
+                topController.present(addPassesController, animated: true, completion: nil)
+            }
             completeAction = true
         }
         
