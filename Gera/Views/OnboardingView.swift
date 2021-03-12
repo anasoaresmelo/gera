@@ -10,7 +10,8 @@ import SwiftUI
 struct OnboardingView: View {
     @State private var showModal = false
     var body: some View {
-        ScrollView {
+        ScrollView(.vertical) {
+            Spacer()
             VStack{
                 Text("Cobrança?")
                     .font(.system(size: 36, weight: .bold, design: .default))
@@ -89,7 +90,9 @@ struct OnboardingView: View {
                     CardCustomizationView(showModal: self.$showModal)
                 }
                 .padding(.top, 30)
-            }
+                
+            }.padding(64)
+            Spacer()
         }
     }
 }

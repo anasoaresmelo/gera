@@ -12,6 +12,9 @@ struct CardCustomizationView: View {
     @State var mensagem = ""
     @State var cor = Color(.systemPurple)
     @State var rgbColor = "rgb(175, 82, 222)"
+    @State var showError = false
+    @State var completeAction = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -143,7 +146,19 @@ struct CardCustomizationView: View {
                     }.padding(.horizontal)
                     
                     // MARK: Continuar
-                    NavigationLink(destination: CardPaymentDataView()) {
+                    NavigationLink(destination: CardPaymentDataView(), isActive: $completeAction, label: { EmptyView() }).disabled(true)
+                        .padding(.bottom)
+                    
+                    Button(action: {
+                        guard mensagem != "" else {
+                            showError = true
+                            return
+                        }
+                        
+                        BackendConnector.shared.message = mensagem
+                        BackendConnector.shared.backgroundColor = rgbColor
+                        completeAction = true
+                    }) {
                         HStack {
                             Text("Continuar")
                                 .foregroundColor(Color(.systemBackground))
@@ -153,16 +168,18 @@ struct CardCustomizationView: View {
                         .background(Color(.systemPurple))
                         .cornerRadius(7.0)
                     }
-                    .simultaneousGesture(TapGesture().onEnded{
-                        BackendConnector.shared.message = mensagem
-                        BackendConnector.shared.backgroundColor = rgbColor
-                    })
                     .padding(.top, 20)
                 }
             }
+            .padding(.top, -32)
+            .alert(isPresented: $showError) {
+                Alert(
+                    title: Text("Mensagem não preenchida"),
+                    message: Text("Adicione uma mensagem ou selecione uma mensagem padrão.")
+                )
+            }
         }
         .accentColor(Color(.systemPurple))
-        .navigationBarTitle("", displayMode: .inline)
     }
 }
 

@@ -22,12 +22,14 @@ struct PassRequest: Codable {
     let agencyNumber, accountNumber, accountType: String?
     let nubankUrl: String?
     let foregroundColor, backgroundColor: String?
+    
 }
 
 class BackendConnector {
     let baseUrlString = "https://gera-server.herokuapp.com"
     static var shared = BackendConnector()
     var message: String = ""
+    var foregroundColor: String?
     var backgroundColor: String?
     var imageUrl: String?
     var lastPassUrl: URL?

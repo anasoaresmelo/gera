@@ -13,6 +13,7 @@
 		0EE270BD25EE5CB800A69E76 /* CardCustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE270BC25EE5CB800A69E76 /* CardCustomizationView.swift */; };
 		1039438D25EE80D000CC0704 /* ShareScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1039438C25EE80D000CC0704 /* ShareScreenView.swift */; };
 		10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */; };
+		A709EB0A25FBFD5F0033BD93 /* LoadingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A709EB0925FBFD5F0033BD93 /* LoadingMessage.swift */; };
 		A71C940625EE815A0082D675 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71C940525EE815A0082D675 /* OnboardingView.swift */; };
 		A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E88A25ED364300BB8659 /* BackendConnector.swift */; };
 		A77F3AFB25F180AD0019B748 /* CardPaymentDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */; };
@@ -56,6 +57,7 @@
 		139DF2B13F72A515CAF29432 /* Pods-Gera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.release.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.release.xcconfig"; sourceTree = "<group>"; };
 		18A8595813D6E88573558C76 /* Pods-Gera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gera.debug.xcconfig"; path = "Target Support Files/Pods-Gera/Pods-Gera.debug.xcconfig"; sourceTree = "<group>"; };
 		738245AA0725BAD8FBB13D5A /* Pods_GeraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A709EB0925FBFD5F0033BD93 /* LoadingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMessage.swift; sourceTree = "<group>"; };
 		A71C940525EE815A0082D675 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		A730E88A25ED364300BB8659 /* BackendConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendConnector.swift; sourceTree = "<group>"; };
 		A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentDataView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				A77F3AFF25F180BC0019B748 /* GenerateCardButton.swift */,
 				0EB5992225EE7D7C001DFCC8 /* ContinueButton.swift */,
 				0EB5991D25EE6F82001DFCC8 /* CardPreview.swift */,
+				A709EB0925FBFD5F0033BD93 /* LoadingMessage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				A71C940625EE815A0082D675 /* OnboardingView.swift in Sources */,
 				A77F3AFB25F180AD0019B748 /* CardPaymentDataView.swift in Sources */,
 				0EB5991E25EE6F82001DFCC8 /* CardPreview.swift in Sources */,
+				A709EB0A25FBFD5F0033BD93 /* LoadingMessage.swift in Sources */,
 				0EE270BD25EE5CB800A69E76 /* CardCustomizationView.swift in Sources */,
 				A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */,
 				0EB5992325EE7D7C001DFCC8 /* ContinueButton.swift in Sources */,
