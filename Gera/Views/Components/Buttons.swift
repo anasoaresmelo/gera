@@ -1,13 +1,16 @@
 //
-//  GenerateCardButton.swift
+//  Buttons.swift
 //  Gera
 //
-//  Created by iris on 03/03/21.
+//  Created by iris on 17/03/21.
 //
 
 import SwiftUI
 
-struct GenerateCardButton: View {
+struct Buttons: View {
+    
+    @Binding var name: String
+    
     var action: (() -> Void)?
     
     var body: some View {
@@ -17,7 +20,7 @@ struct GenerateCardButton: View {
             }
         }) {
             HStack {
-                Text("Gerar Cartão")
+                Text(name)
                     .foregroundColor(Color(.systemBackground))
             }
             .padding()
@@ -28,9 +31,8 @@ struct GenerateCardButton: View {
     }
 }
 
-struct GenerateCardButton_Previews: PreviewProvider {
+struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
-        GenerateCardButton()
-            
+        Buttons(name: Binding.constant("geraaa"))
     }
 }
