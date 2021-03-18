@@ -32,11 +32,11 @@ struct OnboardingView: View {
                 .foregroundColor(Color(.systemPurple))
             
             Spacer().frame(height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            OnboardingBlocks(icon: Binding.constant(icon[0]), title: Binding.constant(title[0]), subtitle: Binding.constant(subtitle[0]))
+            OnboardingBlocks(icon: $icon[0], title: $title[0], subtitle: $subtitle[0])
             Spacer().frame(height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            OnboardingBlocks(icon: Binding.constant(icon[1]), title: Binding.constant(title[1]), subtitle: Binding.constant(subtitle[1]))
+            OnboardingBlocks(icon: $icon[1], title: $title[1], subtitle: $subtitle[1])
             Spacer().frame(height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            OnboardingBlocks(icon: Binding.constant(icon[2]), title: Binding.constant(title[2]), subtitle: Binding.constant(subtitle[2]))
+            OnboardingBlocks(icon: $icon[2], title: $title[2], subtitle: $subtitle[2])
             Spacer().frame(height: 35, alignment: .center)
             Buttons(name: Binding.constant("Começar"), action: {showModal.toggle()})
                 .sheet(isPresented: $showModal) {
