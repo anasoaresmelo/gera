@@ -6,6 +6,14 @@
 //
 
 import SwiftUI
+import Introspect
+import UIKit
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
 struct CardCustomizationView: View {
     
@@ -27,17 +35,21 @@ struct CardCustomizationView: View {
                     CardPreview(color: $cor, message: $mensagem)
 
                     Group {
-                        HStack {
-                            BodyBold(title: .constant("Mensagem"))
-                                .padding(.horizontal)
-                                .padding(.top)
-                            Spacer()
-                        }
-                        TextField("Insira sua mensagem aqui", text: $mensagem)
-                            .disabled(!isEditing)
-                            .padding(.leading)
-                        Divider()
-                            .padding(.horizontal)
+//                        HStack {
+//                            BodyBold(title: .constant("Mensagem"))
+//                                .padding(.horizontal)
+//                                .padding(.top)
+//                            Spacer()
+//                        }
+//                        TextField("Insira sua mensagem aqui", text: $mensagem)
+//                            .introspectTextField { textField in
+//                                textField.becomeFirstResponder()
+//                            }
+//                            .padding(.leading)
+//
+//
+//                        Divider()
+//                            .padding(.horizontal)
                         HStack {
                             Text("Ou selecione uma mensagem padrão")
                                 .font(.headline)
@@ -80,6 +92,22 @@ struct CardCustomizationView: View {
                         }
                         .font(.system(size: 17, weight: .medium, design: .default))
                         .foregroundColor(Color(.systemPurple))
+                        
+                        HStack {
+                            BodyBold(title: .constant("Mensagem"))
+                                .padding(.horizontal)
+                                .padding(.top)
+                            Spacer()
+                        }
+                        TextField("Insira sua mensagem aqui", text: $mensagem)
+                            .introspectTextField { textField in
+                                textField.becomeFirstResponder()
+                            }
+                            .padding(.leading)
+                            
+                            
+                        Divider()
+                            .padding(.horizontal)
                     }.padding(.horizontal)
                     
                     // MARK: Cor
@@ -177,11 +205,16 @@ struct CardCustomizationView: View {
                     title: Text("Mensagem não preenchida"),
                     message: Text("Adicione uma mensagem ou selecione uma mensagem padrão.")
                 )
-            }
+            }.onTapGesture {
+                self.endEditing()}
         }
         .accentColor(Color(.systemPurple))
     }
+    private func endEditing() {
+            UIApplication.shared.endEditing()
+        }
 }
+
 
 struct CardCustomizationView_Previews: PreviewProvider {
     static var previews: some View {

@@ -7,6 +7,7 @@ target 'Gera' do
 
   # Pods for Gera
   pod 'Parma'
+  pod 'Introspect'
 
   target 'GeraTests' do
     inherit! :search_paths
