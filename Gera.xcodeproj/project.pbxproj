@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0321A26E26028F8F00E4F943 /* OnboardingBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321A26D26028F8F00E4F943 /* OnboardingBlocks.swift */; };
-		0321A27B2602A12A00E4F943 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321A27A2602A12A00E4F943 /* Buttons.swift */; };
+		0321A27B2602A12A00E4F943 /* GeraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321A27A2602A12A00E4F943 /* GeraButton.swift */; };
+		035245B0260A1A0C00440AFC /* GeraTextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035245AF260A1A0C00440AFC /* GeraTextStyles.swift */; };
+		035245BC260A36B000440AFC /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035245BB260A36B000440AFC /* teste.swift */; };
 		0AD37077A85F117D533C3531 /* Pods_Gera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E546E6C8A270CE4746AE32BF /* Pods_Gera.framework */; };
 		0EB5991E25EE6F82001DFCC8 /* CardPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5991D25EE6F82001DFCC8 /* CardPreview.swift */; };
 		0EB5992325EE7D7C001DFCC8 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5992225EE7D7C001DFCC8 /* ContinueButton.swift */; };
@@ -52,7 +54,9 @@
 
 /* Begin PBXFileReference section */
 		0321A26D26028F8F00E4F943 /* OnboardingBlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBlocks.swift; sourceTree = "<group>"; };
-		0321A27A2602A12A00E4F943 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		0321A27A2602A12A00E4F943 /* GeraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraButton.swift; sourceTree = "<group>"; };
+		035245AF260A1A0C00440AFC /* GeraTextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeraTextStyles.swift; sourceTree = "<group>"; };
+		035245BB260A36B000440AFC /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		0EB5991D25EE6F82001DFCC8 /* CardPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPreview.swift; sourceTree = "<group>"; };
 		0EB5992225EE7D7C001DFCC8 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		0EE270BC25EE5CB800A69E76 /* CardCustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCustomizationView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035245B7260A24EE00440AFC /* toDelete */ = {
+			isa = PBXGroup;
+			children = (
+				0EB5992225EE7D7C001DFCC8 /* ContinueButton.swift */,
+				A77F3AFF25F180BC0019B748 /* GenerateCardButton.swift */,
+			);
+			path = toDelete;
+			sourceTree = "<group>";
+		};
 		32431B43874C72BCDDCC2048 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +148,11 @@
 		A7924A5E25F169D200DF6701 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A77F3AFF25F180BC0019B748 /* GenerateCardButton.swift */,
-				0321A27A2602A12A00E4F943 /* Buttons.swift */,
-				0EB5992225EE7D7C001DFCC8 /* ContinueButton.swift */,
+				035245AF260A1A0C00440AFC /* GeraTextStyles.swift */,
+				0321A27A2602A12A00E4F943 /* GeraButton.swift */,
 				0EB5991D25EE6F82001DFCC8 /* CardPreview.swift */,
-				A709EB0925FBFD5F0033BD93 /* LoadingMessage.swift */,
 				0321A26D26028F8F00E4F943 /* OnboardingBlocks.swift */,
+				A709EB0925FBFD5F0033BD93 /* LoadingMessage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -148,12 +160,14 @@
 		A7A1FFF625EE816B00ACCA43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				035245B7260A24EE00440AFC /* toDelete */,
 				A7924A5E25F169D200DF6701 /* Components */,
 				A71C940525EE815A0082D675 /* OnboardingView.swift */,
-				10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */,
 				0EE270BC25EE5CB800A69E76 /* CardCustomizationView.swift */,
+				035245BB260A36B000440AFC /* teste.swift */,
 				1039438C25EE80D000CC0704 /* ShareScreenView.swift */,
 				A77F3AFA25F180AD0019B748 /* CardPaymentDataView.swift */,
+				10A8B65325F102BA006ECED6 /* TermsConditionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -485,11 +499,13 @@
 				10A8B65425F102BA006ECED6 /* TermsConditionsView.swift in Sources */,
 				A730E88B25ED364300BB8659 /* BackendConnector.swift in Sources */,
 				A71C940625EE815A0082D675 /* OnboardingView.swift in Sources */,
+				035245B0260A1A0C00440AFC /* GeraTextStyles.swift in Sources */,
 				A77F3AFB25F180AD0019B748 /* CardPaymentDataView.swift in Sources */,
 				0EB5991E25EE6F82001DFCC8 /* CardPreview.swift in Sources */,
-				0321A27B2602A12A00E4F943 /* Buttons.swift in Sources */,
+				0321A27B2602A12A00E4F943 /* GeraButton.swift in Sources */,
 				A709EB0A25FBFD5F0033BD93 /* LoadingMessage.swift in Sources */,
 				0EE270BD25EE5CB800A69E76 /* CardCustomizationView.swift in Sources */,
+				035245BC260A36B000440AFC /* teste.swift in Sources */,
 				A7E2108525ED329D0035EF2B /* ContentView.swift in Sources */,
 				0EB5992325EE7D7C001DFCC8 /* ContinueButton.swift in Sources */,
 				A7E2108325ED329C0035EF2B /* GeraApp.swift in Sources */,

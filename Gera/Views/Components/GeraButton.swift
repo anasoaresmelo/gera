@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Buttons: View {
+struct GeraButton: View {
     
     @Binding var name: String
     
@@ -31,8 +31,8 @@ struct Buttons: View {
     }
 }
 
-struct Buttons_Previews: PreviewProvider {
+struct GeraButton_Previews: PreviewProvider {
     static var previews: some View {
-        Buttons(name: Binding.constant("geraaa"))
+        GeraButton(name: Binding.constant("geraaa"))
     }
 }

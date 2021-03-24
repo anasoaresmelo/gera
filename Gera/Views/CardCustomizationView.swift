@@ -8,40 +8,40 @@
 import SwiftUI
 
 struct CardCustomizationView: View {
+    
     @Binding var showModal: Bool
-    @State var mensagem = ""
-    @State var cor = Color(.systemPurple)
-    @State var rgbColor = "rgb(175, 82, 222)"
-    @State var showError = false
-    @State var completeAction = false
+    @State private var mensagem = ""
+    @State private var cor = Color(.systemPurple)
+    @State private var rgbColor = "rgb(175, 82, 222)"
+    @State private var showError = false
+    @State private var completeAction = false
+    
+    @State private var isEditing = false
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("Personalize seu cartão")
-                        .font(.system(size: 36, weight: .regular, design: .default))
-                        .padding(.top, -20)
                     
-                    // MARK: Pré-visualização
-                    CardPreview(cor: $cor, mensagem: $mensagem)
-                    
-                    // MARK: Mensagem
+                    RegularTitle(regularTitle: .constant("Personalize seu cartão"))
+                    CardPreview(color: $cor, message: $mensagem)
+
                     Group {
                         HStack {
-                            Text("Mensagem")
-                                .font(.system(size: 18, weight: .bold, design: .default))
+                            BodyBold(title: .constant("Mensagem"))
                                 .padding(.horizontal)
                                 .padding(.top)
                             Spacer()
                         }
                         TextField("Insira sua mensagem aqui", text: $mensagem)
+                            .disabled(!isEditing)
                             .padding(.leading)
                         Divider()
                             .padding(.horizontal)
                         HStack {
                             Text("Ou selecione uma mensagem padrão")
-                                .font(.system(size: 19, weight: .bold, design: .default))
+                                .font(.headline)
+                                .fontWeight(.bold)
                                 .padding(.horizontal)
                                 .padding(.top)
                             Spacer()
@@ -185,6 +185,12 @@ struct CardCustomizationView: View {
 
 struct CardCustomizationView_Previews: PreviewProvider {
     static var previews: some View {
-        CardCustomizationView(showModal: .constant(true))
+        Group {
+            CardCustomizationView(showModal: .constant(true))
+            CardCustomizationView(showModal: .constant(true))
+                .previewDevice("iPhone 8")
+            CardCustomizationView(showModal: .constant(true))
+                .previewDevice("iPhone SE (2nd generation)")
+        }
     }
 }

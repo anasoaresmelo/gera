@@ -21,16 +21,9 @@ struct OnboardingBlocks: View {
                 .foregroundColor(Color(.systemPurple))
                 .padding(.trailing)
             VStack(alignment: .leading, spacing: nil, content: {
-                Text(title)
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                    
+                BodyBold(title: $title)
                 Spacer().frame(height: 4, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                Text(subtitle)
-                    .font(.headline)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.leading)
+                BodyRegular(subtitle: $subtitle)
             }) .frame(width: UIScreen.main.bounds.width/1.5, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
         }
     }

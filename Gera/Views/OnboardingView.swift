@@ -22,15 +22,9 @@ struct OnboardingView: View {
     var body: some View {
         
         VStack{
-            Text("Cobrança?")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Text("A gente gera.")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+            LargeTitle(largeTitle: .constant("Cobrança?"))
+            LargeTitle(largeTitle: .constant("A gente gera."))
                 .foregroundColor(Color(.systemPurple))
-            
             Spacer().frame(height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             OnboardingBlocks(icon: $icon[0], title: $title[0], subtitle: $subtitle[0])
             Spacer().frame(height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -38,7 +32,7 @@ struct OnboardingView: View {
             Spacer().frame(height: 15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             OnboardingBlocks(icon: $icon[2], title: $title[2], subtitle: $subtitle[2])
             Spacer().frame(height: 35, alignment: .center)
-            Buttons(name: Binding.constant("Começar"), action: {showModal.toggle()})
+            GeraButton(name: Binding.constant("Começar"), action: {showModal.toggle()})
                 .sheet(isPresented: $showModal) {
                     CardCustomizationView(showModal: self.$showModal)
                 }
