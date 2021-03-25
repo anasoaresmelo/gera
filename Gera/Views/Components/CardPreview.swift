@@ -15,10 +15,10 @@ struct CardPreview: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center), content: {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .frame(width: UIScreen.main.bounds.width/1.2, height: UIScreen.main.bounds.width/1.9)
+                .frame(width: UIScreen.main.bounds.width/1.17, height: UIScreen.main.bounds.width/1.9)
                 .foregroundColor(color)
             if message == "" {
-                TextCard(message: Binding.constant("Sua mensagem aqui"))
+                TextCard(message: .constant("Sua mensagem aqui"))
             } else {
                 TextCard(message: $message)
             }

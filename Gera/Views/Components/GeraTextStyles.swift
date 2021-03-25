@@ -16,6 +16,7 @@ struct GeraTextStyles: View {
             BodyBold(title: .constant("dale"))
             TextCard(message: .constant("dale"))
                 .background(Color(.systemPurple))
+            CardScreenTitle(title: .constant("dale"))
         }
     }
 }
@@ -70,6 +71,19 @@ struct TextCard: View {
             .padding(.bottom, 40)
     }
 }
+struct CardScreenTitle: View {
+    @Binding var title: String
+    
+    var body: some View {
+        HStack {
+            BodyBold(title: .constant(title))
+                .padding(.horizontal)
+                .padding(.top)
+            Spacer()
+        }.padding(.horizontal)
+    }
+}
+
 struct GeraTextStyles_Previews: PreviewProvider {
     static var previews: some View {
         GeraTextStyles()
