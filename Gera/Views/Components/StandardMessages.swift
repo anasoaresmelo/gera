@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StandardMessages: View {
+struct DefaultMessages: View {
     @Binding var message: String
     
     var body: some View {
@@ -46,8 +46,8 @@ struct StandardMessages: View {
     }
 }
 
-struct StandardMessages_Previews: PreviewProvider {
+struct DefaultMessages_Previews: PreviewProvider {
     static var previews: some View {
-        StandardMessages(message: .constant("me pague"))
+        DefaultMessages(message: .constant("me pague"))
     }
 }

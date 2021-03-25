@@ -36,7 +36,7 @@ struct CardCustomizationView: View {
                     RegularTitle(regularTitle: .constant("Personalize seu cartão"))
                     CardPreview(color: $cor, message: $mensagem)
                     CardScreenTitle(title: .constant("Selecione uma mensagem padrão"))
-                    StandardMessages(message: $mensagem)
+                    DefaultMessages(message: $mensagem)
                         .padding(.horizontal)
                     CardScreenTitle(title: .constant("Ou digite sua mensagem"))
                     

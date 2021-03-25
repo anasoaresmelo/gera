@@ -70,30 +70,6 @@ struct ColorsButton: View {
                         .foregroundColor(Color(.systemGray))
                         .frame(width: 45, height: 45)
                 }
-                Button(action: {
-                    self.color = Color(.systemGray)
-                    self.rgbColor = "rgb(142, 142, 147)"
-                }) {
-                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(Color(.systemGray))
-                        .frame(width: 45, height: 45)
-                }
-                Button(action: {
-                    self.color = Color(.systemGray)
-                    self.rgbColor = "rgb(142, 142, 147)"
-                }) {
-                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(Color(.systemGray))
-                        .frame(width: 45, height: 45)
-                }
-                Button(action: {
-                    self.color = Color(.systemGray)
-                    self.rgbColor = "rgb(142, 142, 147)"
-                }) {
-                    RoundedRectangle(cornerRadius: 10.0, style: .continuous)
-                        .foregroundColor(Color(.systemGray))
-                        .frame(width: 45, height: 45)
-                }
             }
         })
         //.frame(width: UIScreen.main.bounds.width/1.2, height: 45)
