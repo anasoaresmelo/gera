@@ -10,7 +10,7 @@ import PassKit
 
 struct CardPaymentDataView: View {
     
-    @State var selected = 0
+    @State var selected = 1
     @State var documento = 0
     @State var tipoConta = 0
     @State var valor = ""
@@ -51,7 +51,6 @@ struct CardPaymentDataView: View {
                 }.padding(.horizontal)
                 
                 Picker(selection: $selected, label: Text(""), content: {
-                    Text("Conta").tag(0)
                     Text("Nubank").tag(1)
                     Text("PicPay").tag(2)
                     Text("Boleto").tag(3)
