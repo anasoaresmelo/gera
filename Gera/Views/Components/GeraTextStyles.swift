@@ -54,7 +54,7 @@ struct BodyRegular: View {
     
     var body: some View {
         Text(subtitle)
-            .font(.headline)
+            .font(.body)
             .fontWeight(.regular)
             .multilineTextAlignment(.leading)
     }

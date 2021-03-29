@@ -274,7 +274,7 @@ struct CardPaymentDataView: View {
                     }.padding(.horizontal)
                 }
                 Spacer()
-                GenerateCardButton(action: {
+                GeraButton(name: Binding.constant("Gerar Cartão"), action: {
                     showLoading()
                     guard let passRequestData = getPassRequest() else {
                         return

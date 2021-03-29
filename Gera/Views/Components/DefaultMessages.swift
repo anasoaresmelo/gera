@@ -1,5 +1,5 @@
 //
-//  StandardMessages.swift
+//  DefaultMessages.swift
 //  Gera
 //
 //  Created by iris on 25/03/21.
