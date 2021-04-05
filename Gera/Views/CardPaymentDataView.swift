@@ -10,6 +10,9 @@ import PassKit
 
 struct CardPaymentDataView: View {
     
+    @Binding var color: Color
+    @Binding var message: String
+    
     @State var selected = 0
     @State var documento = 0
     @State var tipoConta = 0
@@ -284,7 +287,7 @@ struct CardPaymentDataView: View {
                 BackendConnector.shared.requestPassFromServer(cardData: passRequestData, withCompletionHandler: completeCard, withErrorHandler: handleFailedCard)
                 })
                     .padding(.bottom)
-                NavigationLink(destination: ShareScreenView(), isActive: $completeAction, label: { EmptyView() }).disabled(true)
+                NavigationLink(destination: ShareScreenView(color: $color, message: $message), isActive: $completeAction, label: { EmptyView() }).disabled(true)
                     .padding(.bottom)
             }
             .padding(.top, -32)
@@ -585,6 +588,6 @@ struct CardPaymentDataView: View {
 
 struct CardPaymentDataView_Previews: PreviewProvider {
     static var previews: some View {
-        CardPaymentDataView()
+        CardPaymentDataView(color: Binding.constant(Color(.systemPurple)), message: Binding.constant("funciona?"))
     }
 }

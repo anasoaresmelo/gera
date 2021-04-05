@@ -8,92 +8,75 @@
 import SwiftUI
 
 struct ShareScreenView: View {
+    @Binding var color: Color
+    @Binding var message: String
     
     var body: some View {
         NavigationView {
-                VStack(alignment: .center) {
-                    Spacer()
-                    Text("Tudo certo!")
-                        .font(.system(size: 36, weight: .bold, design: .default))
-                        
-                        .padding(.top, 80)
-                    
-                    Text("O cartão que foi gerado também pode ser enviado, por meio de arquivo ou link, \n para outras pessoas.")
-                        .font(.system(size: 17, weight: .regular, design: .default))
-                        .multilineTextAlignment(.center)
-                        .lineLimit(nil)
-                        .padding()
-                        .padding(.bottom, 50)
-                        .padding(.vertical)
+            VStack(alignment: .center) {
+                LargeTitle(largeTitle: .constant("Tudo certo!"))
+                Spacer().frame(height: 40, alignment: .center)
+                CardPreview(color: $color, message: $message)
                     
                     
+                BodyRegular(subtitle: .constant("O cartão que foi gerado também pode ser enviado, por meio de arquivo ou link, para outras pessoas."))
+                    .frame(width: UIScreen.main.bounds.width/1.2, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: .leading)
+                
+                Spacer().frame(height: 20, alignment: .center)
+                Button(action: {
                     
-                    Button(action: {
-                        
-                        let shareAll = [BackendConnector.shared.lastPassData!.dataToFile(fileName: "Cartão Gera.pkpass")]
-                        let shareView = UIActivityViewController(activityItems: shareAll as [Any], applicationActivities: nil)
-                        
-                        if var topController = UIApplication.shared.windows.first?.rootViewController {
-                            while let presentedViewController = topController.presentedViewController {
-                                topController = presentedViewController
-                            }
-                            
-                            topController.present(shareView, animated: true, completion: nil)
-                            
+                    let shareAll = [BackendConnector.shared.lastPassData!.dataToFile(fileName: "Cartão Gera.pkpass")]
+                    let shareView = UIActivityViewController(activityItems: shareAll as [Any], applicationActivities: nil)
+                    
+                    if var topController = UIApplication.shared.windows.first?.rootViewController {
+                        while let presentedViewController = topController.presentedViewController {
+                            topController = presentedViewController
                         }
-                        
-                        
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                                .foregroundColor(Color(.systemBackground))
-                            Text("Compartilhar cartão")
-                                .foregroundColor(Color(.systemBackground))
-                            
-                            
-                        }
-                        .padding()
-                        .background(Color(.systemPurple))
-                        .cornerRadius(7)
+                        topController.present(shareView, animated: true, completion: nil)
                     }
-                    
-                    Button(action: {
-                        
-                        let shareAll = [BackendConnector.shared.lastPassUrl! as NSURL]
-                        let shareView = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
-                        if var topController = UIApplication.shared.windows.first?.rootViewController {
-                            while let presentedViewController = topController.presentedViewController {
-                                topController = presentedViewController
-                            }
-                            
-                            topController.present(shareView, animated: true, completion: nil)
-                            
-                        }
-                        
-                    }) {
-                        Image(systemName: "link")
-                            .foregroundColor(Color(.systemPurple))
-                        Text("Copiar link")
-                            .foregroundColor(Color(.systemPurple))
+                }) {
+                    HStack {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(Color(.systemBackground))
+                        Text("Compartilhar cartão")
+                            .foregroundColor(Color(.systemBackground))
                     }
                     .padding()
-                    
-                    Image("GeraLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 30, alignment: .center)
-                        .padding(.top, 100)
-                    
-                    
+                    .frame(width: UIScreen.main.bounds.width/1.2)
+                    .background(Color(.systemPurple))
+                    .cornerRadius(7.0)
                 }
-                .padding()
-                .padding(.top, -32)
+                
+                Button(action: {
+                    let shareAll = [BackendConnector.shared.lastPassUrl! as NSURL]
+                    let shareView = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+                    if var topController = UIApplication.shared.windows.first?.rootViewController {
+                        while let presentedViewController = topController.presentedViewController {
+                            topController = presentedViewController
+                        }
+                        topController.present(shareView, animated: true, completion: nil)
+                    }
+                })
+                {
+                    Image(systemName: "link")
+                        .foregroundColor(Color(.systemPurple))
+                    Text("Copiar link")
+                        .foregroundColor(Color(.systemPurple))
+                }
+                Spacer()
+            }
         }.navigationBarBackButtonHidden(true)
     }
 }
 
 struct ShareScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ShareScreenView()
+        Group {
+            ShareScreenView(color: Binding.constant(Color(.systemPurple)), message: Binding.constant("funciona?"))
+            ShareScreenView(color: Binding.constant(Color(.systemPurple)), message: Binding.constant("funciona?"))
+                .previewDevice("iPhone 8")
+            ShareScreenView(color: Binding.constant(Color(.systemPurple)), message: Binding.constant("funciona?"))
+                .previewDevice("iPhone SE (2nd generation)")
+        }
     }
 }

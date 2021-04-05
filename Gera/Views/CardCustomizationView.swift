@@ -58,7 +58,7 @@ struct CardCustomizationView: View {
                     }
                     
                     // MARK: Continuar
-                    NavigationLink(destination: CardPaymentDataView(), isActive: $completeAction, label: { EmptyView() }).disabled(true)
+                    NavigationLink(destination: CardPaymentDataView(color: $cor, message: $mensagem), isActive: $completeAction, label: { EmptyView() }).disabled(true)
                     
                     GeraButton(name: Binding.constant("Continuar"), action: {
                                 guard mensagem != "" else {
