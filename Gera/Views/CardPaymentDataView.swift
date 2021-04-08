@@ -10,7 +10,7 @@ import PassKit
 
 struct CardPaymentDataView: View {
     
-    @Binding var color: Color
+    @Binding var color: LinearGradient
     @Binding var message: String
     
     @State var selected = 0
@@ -588,6 +588,6 @@ struct CardPaymentDataView: View {
 
 struct CardPaymentDataView_Previews: PreviewProvider {
     static var previews: some View {
-        CardPaymentDataView(color: Binding.constant(Color(.systemPurple)), message: Binding.constant("funciona?"))
+        CardPaymentDataView(color: Binding.constant(LinearGradient(gradient: Gradient(colors: [Color(red: 125 / 255, green: 80 / 255, blue: 189 / 255), Color(red: 163 / 255, green: 91 / 255, blue: 215 / 255)]), startPoint: .top, endPoint: .bottom)), message: Binding.constant("funciona?"))
     }
 }

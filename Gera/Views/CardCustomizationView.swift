@@ -19,7 +19,7 @@ struct CardCustomizationView: View {
     
     @Binding var showModal: Bool
     @State private var mensagem = ""
-    @State private var cor = Color(.systemPurple)
+    @State private var cor = LinearGradient(gradient: Gradient(colors: [Color(red: 125 / 255, green: 80 / 255, blue: 189 / 255), Color(red: 163 / 255, green: 91 / 255, blue: 215 / 255)]), startPoint: .top, endPoint: .bottom)
     @State private var rgbColor = "rgb(175, 82, 222)"
     @State private var showError = false
     @State private var completeAction = false
