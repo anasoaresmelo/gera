@@ -8,6 +8,7 @@ target 'Gera' do
   # Pods for Gera
   pod 'Parma'
   pod 'Introspect'
+  pod 'AnyFormatKitSwiftUI', '~> 0.3.0'
 
   target 'GeraTests' do
     inherit! :search_paths

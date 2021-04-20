@@ -13,7 +13,7 @@ struct CardPaymentDataView: View {
     @Binding var color: LinearGradient
     @Binding var message: String
     
-    @State var selected = 0
+    @State var selected = 1
     @State var documento = 0
     @State var tipoConta = 0
     @State var valor = ""
@@ -54,54 +54,28 @@ struct CardPaymentDataView: View {
                 }.padding(.horizontal)
                 
                 Picker(selection: $selected, label: Text(""), content: {
+                    // Text("Conta").tag(0)
                     Text("Nubank").tag(1)
                     Text("PicPay").tag(2)
                     Text("Boleto").tag(3)
                 }).padding(.horizontal).pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
                 
-                if(selected == 0) {
+                if (selected == 0) {
                     Group{
                         Group{
                             Group {
-                                Divider()
-                                HStack{
-                                    Text("Valor")
-                                    TextField("Opcional", text: $valor)
-                                        .keyboardType(.decimalPad)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Código do Banco")
-                                    TextField("Obrigatório", text: $codigoBanco)
-                                        .keyboardType(.decimalPad)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Nome do Banco")
-                                    TextField("Obrigatório", text: $nomeBanco)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Titular")
-                                    TextField("Obrigatório", text: $titular)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Agência")
-                                    TextField("Obrigatório", text: $agencia)
-                                        .keyboardType(.decimalPad)
-                                }
+                                /*
+                                FormTextField(content: $valor, label: "Valor", keyboardType: .decimalPad)
+                                FormTextField(content: $codigoBanco, label: "Código do Banco", keyboardType: .decimalPad)
+                                FormTextField(content: $nomeBanco, label: "Nome do Banco")
+                                FormTextField(content: $titular, label: "Titular")
+                                FormTextField(content: $agencia, label: "Agência", keyboardType: .decimalPad)
+                                FormTextField(content: $conta, label: "Conta") */
                             }
                         }.padding(.horizontal)
                         Group{
                             Group {
-                                Divider()
-                                HStack{
-                                    Text("Conta")
-                                    TextField("Obrigatório", text: $conta)
-                                }
-                                Divider()
                                 HStack{
                                     Text("Tipo de Conta")
                                     Picker(selection: $tipoConta, label: Text(""), content: {
@@ -117,6 +91,7 @@ struct CardPaymentDataView: View {
                                         Text("CNPJ").tag(1)
                                     }).pickerStyle(SegmentedPickerStyle())
                                 }
+                                Divider()
                             }
                             Group {
                                 Divider()
@@ -131,11 +106,7 @@ struct CardPaymentDataView: View {
                                         .keyboardType(.decimalPad)
                                 }
                                 Divider()
-                                HStack{
-                                    Text("Telefone de Contato")
-                                    TextField("Obrigatório", text: $telefone)
-                                }
-                                Divider()
+                                FormTextField(content: $telefone, label: "Telefone de Contato", required: true)
                             }
                         }.padding(.horizontal)
                     }.padding(.horizontal)
@@ -590,3 +561,4 @@ struct CardPaymentDataView_Previews: PreviewProvider {
         CardPaymentDataView(color: Binding.constant(LinearGradient(gradient: Gradient(colors: [Color(red: 125 / 255, green: 80 / 255, blue: 189 / 255), Color(red: 163 / 255, green: 91 / 255, blue: 215 / 255)]), startPoint: .top, endPoint: .bottom)), message: Binding.constant("funciona?"))
     }
 }
+

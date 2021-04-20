@@ -1,24 +1,32 @@
 PODS:
+  - AnyFormatKit (2.4.0)
+  - AnyFormatKitSwiftUI (0.3.0):
+    - AnyFormatKit (~> 2.4.0)
   - Down (0.9.5)
   - Introspect (0.1.3)
   - Parma (0.2.0):
     - Down (~> 0.9.3)
 
 DEPENDENCIES:
+  - AnyFormatKitSwiftUI (~> 0.3.0)
   - Introspect
   - Parma
 
 SPEC REPOS:
   trunk:
+    - AnyFormatKit
+    - AnyFormatKitSwiftUI
     - Down
     - Introspect
     - Parma
 
 SPEC CHECKSUMS:
+  AnyFormatKit: 2ca2ad3f6fa0f6862a650342141d2bcaa42e9186
+  AnyFormatKitSwiftUI: 30b8e94f96d5a324ab08f31a61ee3d8e988f4c4e
   Down: 7321a72d0747ed0061dce948bcff518fcb6df2bd
   Introspect: 2be020f30f084ada52bb4387fff83fa52c5c400e
   Parma: 1aeb735f87f274b4bc4607f5ffe54c84119fd301
 
-PODFILE CHECKSUM: 26e7459b3184b657ec72b5d48fe99810a6211bab
+PODFILE CHECKSUM: 9542df61f2a3011a2e49cb373de2408d3844c3be
 
 COCOAPODS: 1.10.1
