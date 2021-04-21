@@ -66,9 +66,8 @@ struct ShareScreenView: View {
                         .foregroundColor(Color(.systemPurple))
                 }
                 Spacer().frame(height: 20, alignment: .center)
-            }//.offset(CGSize(width: 0, height: -100.0))
+            }.offset(CGSize(width: 0, height: -80.0))
         }.navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
     }
 }
 

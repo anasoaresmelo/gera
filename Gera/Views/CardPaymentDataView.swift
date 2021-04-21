@@ -13,20 +13,24 @@ struct CardPaymentDataView: View {
     @Binding var color: LinearGradient
     @Binding var message: String
     
-    @State var selected = 1
-    @State var documento = 0
-    @State var tipoConta = 0
-    @State var valor = ""
-    @State var codigoBanco = ""
-    @State var nomeBanco = ""
-    @State var agencia = ""
-    @State var conta = ""
-    @State var titular = ""
-    @State var telefone = ""
-    @State var cpfCnpj = ""
-    @State var urlNubank = ""
-    @State var userPicPay = ""
-    @State var linhaDigitavel = ""
+    @State var selectedPaymentMethodType: PaymentMethodType = .pix
+    @State var selectedDocument: IdentificationDocumentType = .cpf
+    @State var selectedBankAccountType: BankAccountType = .poupanca
+    @State var selectedPixKeyType: PixKeyType = .identificationDocument
+    @State var amount = ""
+    @State var numericAmount: NSNumber? = nil
+    @State var bankCode = ""
+    @State var bankName = ""
+    @State var bankAgency = ""
+    @State var accountNumber = ""
+    @State var receiverFullName = ""
+    @State var receiverPhoneNumber = ""
+    @State var identificationDocument = ""
+    @State var nubankUrl = ""
+    @State var picpayUserName = ""
+    @State var boletoDigitableLine = ""
+    @State var emailAddress = ""
+    @State var randomPixKey = ""
     @State var displayErrorAlert = false
     @State var displayLoading = false
     @State var completeAction = false
@@ -38,225 +42,103 @@ struct CardPaymentDataView: View {
             VStack{
                 Group {
                     RegularTitle(regularTitle: .constant("Por fim, adicione os"))
-                    Spacer().frame(height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Spacer().frame(height: 20, alignment: .center)
                     RegularTitle(regularTitle: .constant("dados de recebimento"))
-                    Spacer().frame(height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Spacer().frame(height: 25, alignment: .center)
+                    
+                    HStack {
+                        Text("Forma de recebimento")
+                            .fontWeight(.bold)
+                            .padding(.leading)
+                        Spacer()
+                    }.padding(.horizontal)
+                    
+                    PaymentMethodTypePicker(selectedPaymentMethodType: $selectedPaymentMethodType).padding(.horizontal, 32).padding(.bottom)
                 }
                 
-                HStack{
-                    Text("Forma de recebimento")
-                        .fontWeight(.bold)
-                        .padding(.leading)
-                    Spacer()
-                }.padding(.horizontal)
+                Group {
+                    Group {
+                        FormTextField(content: $receiverFullName, label: "Titular", required: true, type: .text)
+                        FormTextField(content: $receiverPhoneNumber, label: "Telefone de contato", required: true, type: .phoneNumber)
+                    }
                 
-                Picker(selection: $selected, label: Text(""), content: {
-                    // Text("Conta").tag(0)
-                    Text("Nubank").tag(1)
-                    Text("PicPay").tag(2)
-                    Text("Boleto").tag(3)
-                }).padding(.horizontal).pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal)
+                    if (selectedPaymentMethodType == .pix) {
+                        Group {
+                            
+                            FormTextField(content: $amount, numericValue: $numericAmount, label: "Valor", required: true, type: .real)
+                            PixKeyTypePicker(selectedPixKeyType: $selectedPixKeyType)
+                            
+                            if (selectedPixKeyType == .identificationDocument) {
+                                IdentificationDocumentTypePicker(selectedIdentificationDocumentType: $selectedDocument)
+                                if (selectedDocument == .cpf) {
+                                    FormTextField(content: $identificationDocument, label: "CPF", required: true, type: .cpf)
+                                }
+                                if (selectedDocument == .cnpj) {
+                                    FormTextField(content: $identificationDocument, label: "CNPJ", required: true, type: .cnpj)
+
+                                }
+                            }
+                            if (selectedPixKeyType == .phoneNumber) {
+                                Text("O telefone de contato acima será usado como chave Pix.").multilineTextAlignment(.leading)
+                            }
+                            if (selectedPixKeyType == .emailAddress) {
+                                FormTextField(content: $emailAddress, label: "E-mail", required: true, type: .email)
+
+                            }
+                            if (selectedPixKeyType == .randomKey) {
+                                FormTextField(content: $randomPixKey, label: "Chave aleatória", required: true, type: .uuidv4)
+
+                            }
+                        }
+                    }
+                    if (selectedPaymentMethodType == .picpay) {
+                        Group {
+                            FormTextField(content: $picpayUserName, label: "Nome de usuário", required: false, type: .userName)
+
+                            FormTextField(content: $amount, numericValue: $numericAmount, label: "Valor", required: false, type: .real)
+                        }
+                    }
+                    if (selectedPaymentMethodType == .nubank) {
+                        Group {
+                            FormTextField(content: $amount, numericValue: $numericAmount, label: "Valor", required: false, type: .real)
+                            IdentificationDocumentTypePicker(selectedIdentificationDocumentType: $selectedDocument)
+                            if (selectedDocument == .cpf) {
+                                FormTextField(content: $identificationDocument, label: "CPF", required: true, type: .cpf)
+                            }
+                            if (selectedDocument == .cnpj) {
+                                FormTextField(content: $identificationDocument, label: "CNPJ", required: true, type: .cnpj)
+                            }
+                            FormTextField(content: $accountNumber, label: "Conta", required: true, type: .number)
                 
-                if (selected == 0) {
-                    Group{
-                        Group{
-                            Group {
-                                /*
-                                FormTextField(content: $valor, label: "Valor", keyboardType: .decimalPad)
-                                FormTextField(content: $codigoBanco, label: "Código do Banco", keyboardType: .decimalPad)
-                                FormTextField(content: $nomeBanco, label: "Nome do Banco")
-                                FormTextField(content: $titular, label: "Titular")
-                                FormTextField(content: $agencia, label: "Agência", keyboardType: .decimalPad)
-                                FormTextField(content: $conta, label: "Conta") */
-                            }
-                        }.padding(.horizontal)
-                        Group{
-                            Group {
-                                HStack{
-                                    Text("Tipo de Conta")
-                                    Picker(selection: $tipoConta, label: Text(""), content: {
-                                        Text("Corrente").tag(0)
-                                        Text("Poupança").tag(1)
-                                    }).pickerStyle(SegmentedPickerStyle())
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Documento")
-                                    Picker(selection: $documento, label: Text(""), content: {
-                                        Text("CPF").tag(0)
-                                        Text("CNPJ").tag(1)
-                                    }).pickerStyle(SegmentedPickerStyle())
-                                }
-                                Divider()
-                            }
-                            Group {
-                                Divider()
-                                HStack{
-                                    if(documento == 0){
-                                        Text("CPF")
-                                    }
-                                    else {
-                                        Text("CNPJ")
-                                    }
-                                    TextField("Obrigatório", text: $cpfCnpj)
-                                        .keyboardType(.decimalPad)
-                                }
-                                Divider()
-                                FormTextField(content: $telefone, label: "Telefone de Contato", required: true)
-                            }
-                        }.padding(.horizontal)
-                    }.padding(.horizontal)
-                }
-                if(selected == 1) {
-                    Group{
-                        Group{
-                            Group {
-                                Divider()
-                                HStack{
-                                    Text("Valor")
-                                    TextField("Opcional", text: $valor)
-                                        .keyboardType(.decimalPad)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("URL do Nubank")
-                                    TextField("Obrigatório", text: $urlNubank)
-                                        .keyboardType(.URL)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Conta")
-                                    TextField("Obrigatório", text: $conta)
-                                }
-                            }
-                            Group {
-                                Divider()
-                                HStack{
-                                    Text("Titular")
-                                    TextField("Obrigatório", text: $titular)
-                                }
-                                Divider()
-                                HStack{
-                                    Text("Telefone de Contato")
-                                    TextField("Obrigatório", text: $telefone)
-                                }
-                            }
-                        }.padding(.horizontal)
-                        Group{
-                            Divider()
-                            HStack{
-                                Text("Documento")
-                                Picker(selection: $documento, label: Text(""), content: {
-                                    Text("CPF").tag(0)
-                                    Text("CNPJ").tag(1)
-                                }).pickerStyle(SegmentedPickerStyle())
-                            }
-                            Divider()
-                            HStack{
-                                if(documento == 0){
-                                    Text("CPF")
-                                }
-                                else {
-                                    Text("CNPJ")
-                                }
-                                TextField("Obrigatório", text: $cpfCnpj)
-                                    .keyboardType(.decimalPad)
-                            }
-                            Divider()
-                        }.padding(.horizontal)
-                    }.padding(.horizontal)
-                }
-                if(selected == 2) {
-                    Group{
-                        Divider()
-                        HStack{
-                            Text("Valor")
-                            TextField("Opcional", text: $valor)
-                                .keyboardType(.decimalPad)
+                            FormTextField(content: $nubankUrl, label: "URL do Nubank", required: true, type: .url)
                         }
-                        Divider()
-                        HStack{
-                            Text("Usuário")
-                            TextField("Obrigatório", text: $userPicPay)
+                    }
+                    if (selectedPaymentMethodType == .boleto) {
+                        FormTextField(content: $amount, numericValue: $numericAmount, label: "Valor", required: true, type: .real)
+                        FormTextField(content: $boletoDigitableLine, label: "Linha digitável", required: true, type: .number)
+                        IdentificationDocumentTypePicker(selectedIdentificationDocumentType: $selectedDocument)
+                        if (selectedDocument == .cpf) {
+                            FormTextField(content: $identificationDocument, label: "CPF", required: true, type: .cpf)
                         }
-                        Divider()
-                        HStack{
-                            Text("Titular")
-                            TextField("Obrigatório", text: $titular)
+                        if (selectedDocument == .cnpj) {
+                            FormTextField(content: $identificationDocument, label: "CNPJ", required: true, type: .cnpj)
                         }
-                        Divider()
-                        HStack{
-                            Text("Telefone de Contato")
-                            TextField("Obrigatório", text: $telefone)
-                        }
-                        Divider()
-                    }.padding(.horizontal)
-                    .padding(.horizontal)
-                }
-                if(selected == 3) {
-                    Group{
-                        Group{
-                            Divider()
-                            HStack{
-                                Text("Valor")
-                                TextField("Obrigatório", text: $valor)
-                                    .keyboardType(.decimalPad)
-                            }
-                            Divider()
-                            HStack{
-                                Text("Linha digitável")
-                                TextField("Obrigatório", text: $linhaDigitavel)
-                                    .keyboardType(.decimalPad)
-                            }
-                            Divider()
-                            HStack{
-                                Text("Titular")
-                                TextField("Obrigatório", text: $titular)
-                            }
-                            Divider()
-                            HStack{
-                                Text("Telefone de Contato")
-                                TextField("Obrigatório", text: $telefone)
-                            }
-                        }.padding(.horizontal)
-                        Group{
-                            Divider()
-                            HStack{
-                                Text("Documento")
-                                Picker(selection: $documento, label: Text(""), content: {
-                                    Text("CPF").tag(0)
-                                    Text("CNPJ").tag(1)
-                                }).pickerStyle(SegmentedPickerStyle())
-                            }
-                            Divider()
-                            HStack{
-                                if(documento == 0){
-                                    Text("CPF")
-                                }
-                                else {
-                                    Text("CNPJ")
-                                }
-                                TextField("Obrigatório", text: $cpfCnpj)
-                                    .keyboardType(.decimalPad)
-                            }
-                            Divider()
-                        }.padding(.horizontal)
-                    }.padding(.horizontal)
-                }
-                Spacer()
+                    }
+                }.padding(.horizontal, 32)
+                Spacer(minLength: 32)
                 GeraButton(name: Binding.constant("Gerar Cartão"), action: {
                     showLoading()
                     guard let passRequestData = getPassRequest() else {
                         return
                     }
                     
-                BackendConnector.shared.requestPassFromServer(cardData: passRequestData, withCompletionHandler: completeCard, withErrorHandler: handleFailedCard)
+                    BackendConnector.shared.requestPassFromServer(cardData: passRequestData, withCompletionHandler: completeCard, withErrorHandler: handleFailedCard)
                 })
-                    .padding(.bottom)
+                .padding(.bottom)
                 NavigationLink(destination: ShareScreenView(color: $color, message: $message), isActive: $completeAction, label: { EmptyView() }).disabled(true)
                     .padding(.bottom)
             }
+            
             .padding(.top, -32)
             .padding(.vertical)
         }
@@ -315,100 +197,126 @@ struct CardPaymentDataView: View {
     func getPassRequest() -> PassRequest? {
         var passRequest: PassRequest
 
-        switch selected {
-        case 0: // Febraban
-            
-            guard (codigoBanco != "") else {
-                 showErrorAlert(title: "Código do banco não preenchido")
-                 return nil
-            }
-            
-            guard (nomeBanco != "") else {
-                 showErrorAlert(title: "Nome do banco não preenchido")
-                 return nil
-            }
-            
-            guard (agencia != "") else {
-                 showErrorAlert(title: "Número da agência não preenchido")
-                 return nil
-            }
-            
-            guard (conta != "") else {
-                 showErrorAlert(title: "Número da conta não preenchido")
-                 return nil
-            }
-            
-            guard (titular != "") else {
-                 showErrorAlert(title: "Nome do titular não preenchido")
-                 return nil
-            }
-            
-            guard (cpfCnpj != "") else {
-                if (documento == 0) {
-                    showErrorAlert(title: "CPF não preenchido")
-                } else {
-                    showErrorAlert(title: "CNPJ não preenchido")
+        guard (isStringNotEmpty(string: receiverFullName)) else {
+             showErrorAlert(title: "Nome do titular não preenchido")
+             return nil
+        }
+        
+        guard (isStringNotEmpty(string: receiverPhoneNumber)) else {
+            showErrorAlert(title: "Telefone de contato não preenchido")
+            return nil
+        }
+        
+        guard (isStringValidBrazilianPhoneNumber(string: receiverPhoneNumber)) else {
+            showErrorAlert(title: "Telefone de contato inválido")
+            return nil
+        }
+        
+        switch selectedPaymentMethodType {
+        case .pix:
+                        
+            if (selectedPixKeyType == .emailAddress) {
+                guard (isStringNotEmpty(string: emailAddress)) else {
+                    showErrorAlert(title: "E-mail não preenchido")
+                    return nil
                 }
-                return nil
-            }
-            
-            guard (telefone != "") else {
-                showErrorAlert(title: "Telefone de contato não preenchido")
-                return nil
+                
+                guard (isStringValidEmail(string: emailAddress)) else {
+                    showErrorAlert(title: "E-mail inválido")
+                    return nil
+                }
             }
             
             var cpf: String? = nil
             var cnpj: String? = nil
-            if (documento == 0) {
-                cpf = cpfCnpj
-            } else {
-                cnpj = cpfCnpj
+            
+            if (selectedPixKeyType == .identificationDocument) {
+                guard (isStringNotEmpty(string: identificationDocument)) else {
+                    if (selectedDocument == .cpf) {
+                        showErrorAlert(title: "CPF não preenchido")
+                    } else {
+                        showErrorAlert(title: "CNPJ não preenchido")
+                    }
+                    return nil
+                }
+                
+                if (selectedDocument == .cpf) {
+                    guard (isStringValidCPF(string: identificationDocument)) else {
+                        showErrorAlert(title: "CPF inválido")
+                        return nil
+                    }
+                    cpf = identificationDocument
+                } else {
+                    guard (isStringValidCNPJ(string: identificationDocument)) else {
+                        showErrorAlert(title: "CNPJ inválido")
+                        return nil
+                    }
+                    cnpj = identificationDocument
+                }
             }
-            var accountType = "Conta Corrente"
-            if (tipoConta == 1) {
-                accountType = "Conta Poupança"
+            
+            if (selectedPixKeyType == .randomKey) {
+                guard (isStringNotEmpty(string: randomPixKey)) else {
+                    showErrorAlert(title: "Chave aleatória não preenchida")
+                    return nil
+                }
+                
+                guard (isStringValidUuid(string: randomPixKey)) else {
+                    showErrorAlert(title: "Chave aleatória inválida")
+                    return nil
+                }
+            }
+
+            guard (numericAmount != nil && numericAmount!.doubleValue > 0.0) else {
+                showErrorAlert(title: "Valor não preenchido")
+                return nil
             }
             
             passRequest = PassRequest(
-                type: "febraban",
+                type: "pix",
                 message: BackendConnector.shared.message,
-                recipientName: titular,
-                recipientPhoneNumber: telefone,
-                value: valor,
+                recipientName: receiverFullName,
+                recipientPhoneNumber: receiverPhoneNumber,
+                value: numericAmount?.doubleValue,
                 imageUrl: BackendConnector.shared.imageUrl,
                 picpayUser: nil,
                 boletoDigitableLine: nil,
                 cpf: cpf,
                 cnpj: cnpj,
-                bankCode: codigoBanco,
-                bankName: nomeBanco,
-                agencyNumber: agencia,
-                accountNumber: conta,
-                accountType: accountType,
+                bankCode: bankCode,
+                bankName: bankName,
+                agencyNumber: bankAgency,
+                accountNumber: accountNumber,
+                accountType: "Pix",
                 nubankUrl: nil,
+                emailAddress: selectedPixKeyType == .emailAddress ? emailAddress : nil,
+                pixRandomKey: selectedPixKeyType == .randomKey ? emailAddress : nil,
                 foregroundColor: BackendConnector.shared.foregroundColor,
                 backgroundColor: BackendConnector.shared.backgroundColor)
             
             break;
-        case 1: // Nubank
+        case .nubank:
             
-            guard (urlNubank != "") else {
+            guard (isStringNotEmpty(string: nubankUrl)) else {
                  showErrorAlert(title: "URL de envio do Nubank não preenchido")
                  return nil
             }
             
-            guard (conta != "") else {
+            guard (isStringValidUrl(string: nubankUrl)) else {
+                 showErrorAlert(title: "URL de envio do Nubank inválido")
+                 return nil
+            }
+            
+            guard (isStringNotEmpty(string: accountNumber)) else {
                  showErrorAlert(title: "Número da conta não preenchido")
                  return nil
             }
             
-            guard (titular != "") else {
-                 showErrorAlert(title: "Nome do titular não preenchido")
-                 return nil
-            }
+            var cpf: String? = nil
+            var cnpj: String? = nil
             
-            guard (cpfCnpj != "") else {
-                if (documento == 0) {
+            guard (isStringNotEmpty(string: identificationDocument)) else {
+                if (selectedDocument == .cpf) {
                     showErrorAlert(title: "CPF não preenchido")
                 } else {
                     showErrorAlert(title: "CNPJ não preenchido")
@@ -416,25 +324,31 @@ struct CardPaymentDataView: View {
                 return nil
             }
             
-            guard (telefone != "") else {
-                showErrorAlert(title: "Telefone de contato não preenchido")
-                return nil
+            if (selectedDocument == .cpf) {
+                guard (isStringValidCPF(string: identificationDocument)) else {
+                    showErrorAlert(title: "CPF inválido")
+                    return nil
+                }
+                cpf = identificationDocument
+            } else {
+                guard (isStringValidCNPJ(string: identificationDocument)) else {
+                    showErrorAlert(title: "CNPJ inválido")
+                    return nil
+                }
+                cnpj = identificationDocument
             }
             
-            var cpf: String? = nil
-            var cnpj: String? = nil
-            if (documento == 0) {
-                cpf = cpfCnpj
-            } else {
-                cnpj = cpfCnpj
+            guard (numericAmount == nil || numericAmount!.doubleValue > 0.0) else {
+                showErrorAlert(title: "Valor inválido")
+                return nil
             }
             
             passRequest = PassRequest(
                 type: "nubank",
                 message: BackendConnector.shared.message,
-                recipientName: titular,
-                recipientPhoneNumber: telefone,
-                value: valor,
+                recipientName: receiverFullName,
+                recipientPhoneNumber: receiverPhoneNumber,
+                value: numericAmount?.doubleValue,
                 imageUrl: BackendConnector.shared.imageUrl,
                 picpayUser: nil,
                 boletoDigitableLine: nil,
@@ -443,37 +357,40 @@ struct CardPaymentDataView: View {
                 bankCode: "260",
                 bankName: "Nu Pagamentos S.A.",
                 agencyNumber: "0001",
-                accountNumber: conta,
+                accountNumber: accountNumber,
                 accountType: "Conta de Pagamento",
-                nubankUrl: urlNubank,
+                nubankUrl: nubankUrl,
+                emailAddress: nil,
+                pixRandomKey: nil,
                 foregroundColor: BackendConnector.shared.foregroundColor,
                 backgroundColor: BackendConnector.shared.backgroundColor)
             
             break;
-        case 2: // PicPay
-            guard (userPicPay != "") else {
+        case .picpay:
+            
+            guard (isStringNotEmpty(string: picpayUserName)) else {
                  showErrorAlert(title: "Usuário do PicPay não preenchido")
                  return nil
              }
-
-            guard (titular != "") else {
-                showErrorAlert(title: "Nome do titular não preenchido")
+            
+            guard (isStringValidUserName(string: picpayUserName)) else {
+                 showErrorAlert(title: "Usuário do PicPay inválido")
+                 return nil
+             }
+            
+            guard (numericAmount == nil || numericAmount!.doubleValue > 0.0) else {
+                showErrorAlert(title: "Valor inválido")
                 return nil
             }
             
-            guard (telefone != "") else {
-                showErrorAlert(title: "Telefone de contato não preenchido")
-                return nil
-            }
-
             passRequest = PassRequest(
                 type: "picpay",
                 message: BackendConnector.shared.message,
-                recipientName: titular,
-                recipientPhoneNumber: telefone,
-                value: valor,
+                recipientName: receiverFullName,
+                recipientPhoneNumber: receiverPhoneNumber,
+                value: numericAmount?.doubleValue,
                 imageUrl: BackendConnector.shared.imageUrl,
-                picpayUser: userPicPay,
+                picpayUser: picpayUserName,
                 boletoDigitableLine: nil,
                 cpf: nil,
                 cnpj: nil,
@@ -483,28 +400,28 @@ struct CardPaymentDataView: View {
                 accountNumber: nil,
                 accountType: nil,
                 nubankUrl: nil,
+                emailAddress: nil,
+                pixRandomKey: nil,
                 foregroundColor: BackendConnector.shared.foregroundColor,
                 backgroundColor: BackendConnector.shared.backgroundColor)
             break;
-        case 3: // Boleto
+        case .boleto:
 
-            guard (valor != "") else {
-                 showErrorAlert(title: "Valor do boleto não preenchido")
-                 return nil
+            guard ((numericAmount != nil && numericAmount!.doubleValue > 0.0)) else {
+                showErrorAlert(title: "Valor não preenchido")
+                return nil
             }
             
-            guard (linhaDigitavel != "") else {
+            guard (isStringNotEmpty(string: boletoDigitableLine)) else {
                  showErrorAlert(title: "Linha digitável não preenchida")
                  return nil
             }
             
-            guard (titular != "") else {
-                 showErrorAlert(title: "Nome do titular não preenchido")
-                 return nil
-            }
+            var cpf: String? = nil
+            var cnpj: String? = nil
             
-            guard (cpfCnpj != "") else {
-                if (documento == 0) {
+            guard (isStringNotEmpty(string: identificationDocument)) else {
+                if (selectedDocument == .cpf) {
                     showErrorAlert(title: "CPF não preenchido")
                 } else {
                     showErrorAlert(title: "CNPJ não preenchido")
@@ -512,28 +429,29 @@ struct CardPaymentDataView: View {
                 return nil
             }
             
-            guard (telefone != "") else {
-                showErrorAlert(title: "Telefone de contato não preenchido")
-                return nil
-            }
-            
-            var cpf: String? = nil
-            var cnpj: String? = nil
-            if (documento == 0) {
-                cpf = cpfCnpj
+            if (selectedDocument == .cpf) {
+                guard (isStringValidCPF(string: identificationDocument)) else {
+                    showErrorAlert(title: "CPF inválido")
+                    return nil
+                }
+                cpf = identificationDocument
             } else {
-                cnpj = cpfCnpj
+                guard (isStringValidCNPJ(string: identificationDocument)) else {
+                    showErrorAlert(title: "CNPJ inválido")
+                    return nil
+                }
+                cnpj = identificationDocument
             }
             
             passRequest = PassRequest(
                 type: "boleto",
                 message: BackendConnector.shared.message,
-                recipientName: titular,
-                recipientPhoneNumber: telefone,
-                value: valor,
+                recipientName: receiverFullName,
+                recipientPhoneNumber: receiverPhoneNumber,
+                value: numericAmount?.doubleValue,
                 imageUrl: BackendConnector.shared.imageUrl,
                 picpayUser: nil,
-                boletoDigitableLine: linhaDigitavel,
+                boletoDigitableLine: boletoDigitableLine,
                 cpf: cpf,
                 cnpj: cnpj,
                 bankCode: nil,
@@ -542,12 +460,12 @@ struct CardPaymentDataView: View {
                 accountNumber: nil,
                 accountType: nil,
                 nubankUrl: nil,
+                emailAddress: nil,
+                pixRandomKey: nil,
                 foregroundColor: BackendConnector.shared.foregroundColor,
                 backgroundColor: BackendConnector.shared.backgroundColor)
             
             break;
-        default:
-            return nil
         }
         return passRequest
     }

@@ -9,6 +9,7 @@ target 'Gera' do
   pod 'Parma'
   pod 'Introspect'
   pod 'AnyFormatKitSwiftUI', '~> 0.3.0'
+  pod 'CPF-CNPJ-Validator'
 
   target 'GeraTests' do
     inherit! :search_paths

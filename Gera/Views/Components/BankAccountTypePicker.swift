@@ -13,7 +13,7 @@ enum BankAccountType: String {
 }
 
 struct BankAccountTypePicker: View {
-    @State var selectedBankAccountType: BankAccountType = .corrente
+    @Binding var selectedBankAccountType: BankAccountType
     
     var body: some View {
         Picker("Selecione um tipo de documento", selection: $selectedBankAccountType) {
@@ -27,6 +27,6 @@ struct BankAccountTypePicker: View {
 
 struct BankAccountTypePicker_Previews: PreviewProvider {
     static var previews: some View {
-        BankAccountTypePicker()
+        BankAccountTypePicker(selectedBankAccountType: .constant(.corrente))
     }
 }

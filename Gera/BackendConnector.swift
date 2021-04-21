@@ -15,12 +15,14 @@ enum RequestError: Error {
 
 struct PassRequest: Codable {
     let type, message, recipientName, recipientPhoneNumber: String
-    let value, imageUrl: String?
+    let value: Double?
+    let imageUrl: String?
     let picpayUser: String?
     let boletoDigitableLine, cpf, cnpj: String?
     let bankCode, bankName: String?
     let agencyNumber, accountNumber, accountType: String?
     let nubankUrl: String?
+    let emailAddress, pixRandomKey: String?
     let foregroundColor, backgroundColor: String?
     
 }

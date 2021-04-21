@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AnyFormatKitSwiftUI
+import CPF_CNPJ_Validator
 
 struct FormTextField: View {
     @Binding var content: String
@@ -26,6 +27,8 @@ struct FormTextField: View {
     var body: some View {
         HStack {
             Text(label)
+                .padding(.trailing, 8)
+                .padding(.vertical, 4)
             if (settings.formFieldView == .textField) {
                 TextField(required ? "Obrigatório" : "Opcional", text: $content)
                     .keyboardType(settings.keyboardType)
@@ -45,11 +48,14 @@ struct FormTextField: View {
                 ).keyboardType(settings.keyboardType)
             }
         }
+        
+        Divider()
     }
 }
 
 enum FormTextFieldType {
     case text
+    case number
     case phoneNumber
     case cpf
     case cnpj
@@ -59,6 +65,7 @@ enum FormTextFieldType {
     case userName
     case email
     case url
+    case uuidv4
 }
 
 enum FormTextFieldView {
@@ -87,44 +94,45 @@ func isStringNotEmpty(string: String) -> Bool {
 }
 
 func isStringValidCPF(string: String) -> Bool {
-    // TODO
-    return true
+    return BooleanValidator().validate(cpf: string)
 }
 
 func isStringValidCNPJ(string: String) -> Bool {
-    // TODO
-    return true
+    return BooleanValidator().validate(cnpj: string)
 }
 
 func isStringValidEmail(string: String) -> Bool {
     let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-    return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+    return isStringNotEmpty(string: string) && regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
 }
 
 func isStringValidUrl(string: String) -> Bool {
-    // TODO
-    let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-    return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+    let regex = try! NSRegularExpression(pattern: "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()!@:%_\\+.~#?&\\/\\/=]*)", options: .caseInsensitive)
+    return isStringNotEmpty(string: string) && regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
 }
 
 func isStringValidUserName(string: String) -> Bool {
-    // TODO
-    let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-    return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+    let regex = try! NSRegularExpression(pattern: "^[a-z0-9\\._-]{1,20}$", options: .caseInsensitive)
+    return isStringNotEmpty(string: string) && regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
 }
 
 func isStringValidBrazilianPhoneNumber(string: String) -> Bool {
     return (isStringLengthOf(string: string, length: 10) || isStringLengthOf(string: string, length: 11)) && isStringContainingOnlyNumbers(string: string)
 }
 
-func isStringValidRealCurrency(string: String) -> Bool {
-    // TODO
-    return true
+func isStringValidUuid(string: String) -> Bool {
+    let regex = try! NSRegularExpression(pattern: "^[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}$", options: .caseInsensitive)
+    return isStringNotEmpty(string: string) && regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
 }
 
 var predefinedSettingsForType: [FormTextFieldType : FormTextFieldSettings] = [
     .text: FormTextFieldSettings(
         keyboardType: .default,
+        formFieldView: .textField,
+        textPattern: nil,
+        completeCondition: isStringNotEmpty),
+    .number: FormTextFieldSettings(
+        keyboardType: .numberPad,
         formFieldView: .textField,
         textPattern: nil,
         completeCondition: isStringNotEmpty),
@@ -172,12 +180,17 @@ var predefinedSettingsForType: [FormTextFieldType : FormTextFieldSettings] = [
         keyboardType: .URL,
         formFieldView: .textField,
         textPattern: nil,
-        completeCondition: isStringValidUrl)
+        completeCondition: isStringValidUrl),
+    .uuidv4: FormTextFieldSettings(
+        keyboardType: .default,
+        formFieldView: .textField,
+        textPattern: nil,
+        completeCondition: isStringValidUuid)
     ]
 
 struct FormTextField_Previews: PreviewProvider {
     static var previews: some View {
-        List {
+        VStack {
             FormTextField(content: .constant(""), label: "Nome", type: .text)
             FormTextField(content: .constant(""), label: "Telefone de Contato", type: .phoneNumber)
             FormTextField(content: .constant(""), label: "CPF", required: true, type: .cpf)
