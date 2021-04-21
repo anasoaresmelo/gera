@@ -93,7 +93,7 @@ struct CardPaymentDataView: View {
                     }
                     if (selectedPaymentMethodType == .picpay) {
                         Group {
-                            FormTextField(content: $picpayUserName, label: "Nome de usuário", required: false, type: .userName)
+                            FormTextField(content: $picpayUserName, label: "Nome de usuário", required: true, type: .userName)
 
                             FormTextField(content: $amount, numericValue: $numericAmount, label: "Valor", required: false, type: .real)
                         }
