@@ -37,13 +37,10 @@ struct CardPaymentDataView: View {
         ScrollView {
             VStack{
                 Group {
-                    Text("Por fim, adicione os")
-                        .font(.system(size: 36, weight: .regular, design: .default))
-                        .multilineTextAlignment(.center)
-                    Text("dados de recebimento")
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 36, weight: .regular, design: .default))
-                        .padding(.bottom)
+                    RegularTitle(regularTitle: .constant("Por fim, adicione os"))
+                    Spacer().frame(height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    RegularTitle(regularTitle: .constant("dados de recebimento"))
+                    Spacer().frame(height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
                 
                 HStack{
